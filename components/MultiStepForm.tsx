@@ -3,7 +3,9 @@
 import { useState } from "react";
 import styles from "./MultiStepForm.module.css";
 
-const SHEET_URL = process.env.NEXT_PUBLIC_SHEET_URL ?? "";
+const SHEET_URL =
+  process.env.NEXT_PUBLIC_SHEET_URL ??
+  "https://script.google.com/macros/s/AKfycbxS_hq_BUKUBJeTpRJZsR7mAW0I39JgMp5n2XmTyXpI9nvAhC8fRoXacSeQoC5yz2cq3w/exec";
 const LANDING_ID = "4-Confianza";
 const AUTO_ADVANCE_DELAY = 500;
 
