@@ -1,0 +1,161 @@
+.formBody {
+  padding: 28px;
+}
+
+.progressBar {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 24px;
+}
+
+.seg {
+  flex: 1;
+  height: 4px;
+  border-radius: 4px;
+  background: #ede7f6;
+  transition: background 0.3s;
+}
+
+.seg.active {
+  background: var(--purple);
+}
+
+.question label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text2);
+  transition: all 0.15s;
+  font-weight: 500;
+  background: transparent;
+  font-family: "Montserrat", sans-serif;
+  text-align: left;
+  width: 100%;
+}
+
+.option:hover {
+  border-color: var(--purple);
+  background: var(--purple-light);
+}
+
+.option.selected {
+  border-color: var(--purple);
+  background: var(--purple-light);
+  color: var(--purple);
+  font-weight: 700;
+}
+
+.radio {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.option.selected .radio {
+  border-color: var(--purple);
+  background: var(--purple);
+  position: relative;
+}
+
+.option.selected .radio::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+}
+
+.formActions {
+  display: flex;
+  gap: 10px;
+}
+
+.btnBack {
+  padding: 13px 22px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  background: transparent;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text2);
+  cursor: pointer;
+}
+
+.btnNext {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: var(--purple-gradient);
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btnNext:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(123, 45, 142, 0.3);
+}
+
+.btnNext:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.thankYou {
+  text-align: center;
+  padding: 56px 28px;
+}
+
+.thankIcon {
+  font-size: 52px;
+  margin-bottom: 16px;
+}
+
+.thankYou h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--purple);
+  margin-bottom: 10px;
+}
+
+.thankYou p {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.6;
+  max-width: 380px;
+  margin: 0 auto;
+}

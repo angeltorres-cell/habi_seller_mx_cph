@@ -1,0 +1,41 @@
+.section {
+  padding: 40px 24px 48px;
+  text-align: center;
+}
+
+.inline {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--bg-gray);
+  border-radius: 16px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.text {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text2);
+}
+
+.num {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--purple);
+  line-height: 1;
+}
+
+.sym {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--purple);
+}
+
+.detail {
+  font-size: 13px;
+  color: var(--muted);
+}
