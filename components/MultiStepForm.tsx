@@ -5,7 +5,7 @@ import styles from "./MultiStepForm.module.css";
 
 const SHEET_URL =
   process.env.NEXT_PUBLIC_SHEET_URL ??
-  "https://script.google.com/macros/s/AKfycbxS_hq_BUKUBJeTpRJZsR7mAW0I39JgMp5n2XmTyXpI9nvAhC8fRoXacSeQoC5yz2cq3w/exec";
+  "https://script.google.com/macros/s/AKfycbw6btcMsIvFgz0-gCT6Nlh7qExBg3E41FItxfSKqWshN4Fp21Fmg5kLyVo2n9N05C7ueg/exec";
 const LANDING_ID = "4-Confianza";
 const AUTO_ADVANCE_DELAY = 500;
 
