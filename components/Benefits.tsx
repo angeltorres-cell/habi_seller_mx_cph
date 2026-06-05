@@ -24,7 +24,7 @@ export default function Benefits() {
       <div className={styles.wrap}>
         <h2>¿Qué ganas con este servicio?</h2>
         <p className={styles.sub}>
-          Además de mudarte sin el bache de Infonavit, te ahorras lo que nadie
+          Además de mudarte sin el obstaculo de Infonavit, te ahorras lo que nadie
           te cuenta:
         </p>
         <div className={styles.grid}>

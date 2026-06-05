@@ -14,7 +14,7 @@ const steps = [
   {
     num: "3. Coordinamos tu nueva compra",
     title: "Juntos hasta la entrega de llaves",
-    desc: "Aplicamos tus recursos a la nueva propiedad. Te guiamos en cada paso para que llegues a tu nuevo hogar sin estrés.",
+    desc: "Recibes los recursos directamente para destinarlos a tu siguiente casa. Te asesoramos en todo el proceso para que estrenes hogar sin complicaciones.",
   },
 ];
 
