@@ -12,6 +12,7 @@ const AUTO_ADVANCE_DELAY = 500;
 const questions = [
   {
     id: "q1",
+    type: "options" as const,
     label: "¿Cómo financias tu propiedad actual?",
     options: [
       "Crédito Infonavit",
@@ -21,6 +22,7 @@ const questions = [
   },
   {
     id: "q2",
+    type: "options" as const,
     label: "¿Cuál es la situación de la propiedad que quieres vender?",
     options: [
       "Vivimos en ella actualmente",
@@ -30,6 +32,7 @@ const questions = [
   },
   {
     id: "q3",
+    type: "options" as const,
     label: "¿Qué pasos has dado para tu próxima mudanza?",
     options: [
       "Ya di anticipo o firmé contrato",
@@ -40,14 +43,17 @@ const questions = [
   },
   {
     id: "q4",
-    label: "¿En qué etapa va el pago de tu crédito actual?",
-    options: [
-      "Falta más de la mitad (+50%)",
-      "Falta menos de la mitad (-50%)",
-      "Recta final (últimos pagos)",
-    ],
+    type: "currency" as const,
+    label: "¿A cuánto asciende el saldo que debes de tu hipoteca al día de hoy?",
+    placeholder: "Ej. 850,000",
   },
 ];
+
+function formatCurrency(raw: string): string {
+  const digits = raw.replace(/\D/g, "");
+  if (!digits) return "";
+  return Number(digits).toLocaleString("es-MX");
+}
 
 export default function MultiStepForm() {
   const [step, setStep] = useState(1);
@@ -56,15 +62,18 @@ export default function MultiStepForm() {
 
   const isLastStep = step === questions.length;
   const currentQ = questions[step - 1];
-  const currentAnswer = answers[currentQ.id];
+  const currentAnswer = answers[currentQ.id] ?? "";
 
   function selectOption(value: string) {
-    const newAnswers = { ...answers, [currentQ.id]: value };
-    setAnswers(newAnswers);
-
+    setAnswers((prev) => ({ ...prev, [currentQ.id]: value }));
     if (!isLastStep) {
       setTimeout(() => setStep((s) => s + 1), AUTO_ADVANCE_DELAY);
     }
+  }
+
+  function handleCurrencyChange(raw: string) {
+    const formatted = formatCurrency(raw);
+    setAnswers((prev) => ({ ...prev, [currentQ.id]: formatted }));
   }
 
   async function handleSubmit() {
@@ -121,18 +130,36 @@ export default function MultiStepForm() {
 
       <div className={styles.question}>
         <label>{currentQ.label}</label>
-        <div className={styles.options}>
-          {currentQ.options.map((opt) => (
-            <button
-              key={opt}
-              className={`${styles.option} ${currentAnswer === opt ? styles.selected : ""}`}
-              onClick={() => selectOption(opt)}
-            >
-              <span className={styles.radio} />
-              {opt}
-            </button>
-          ))}
-        </div>
+
+        {currentQ.type === "options" && (
+          <div className={styles.options}>
+            {currentQ.options.map((opt) => (
+              <button
+                key={opt}
+                className={`${styles.option} ${currentAnswer === opt ? styles.selected : ""}`}
+                onClick={() => selectOption(opt)}
+              >
+                <span className={styles.radio} />
+                {opt}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {currentQ.type === "currency" && (
+          <div className={styles.currencyWrap}>
+            <span className={styles.currencySymbol}>$</span>
+            <input
+              type="text"
+              inputMode="numeric"
+              className={styles.currencyInput}
+              placeholder={currentQ.placeholder}
+              value={currentAnswer}
+              onChange={(e) => handleCurrencyChange(e.target.value)}
+            />
+            <span className={styles.currencyCode}>MXN</span>
+          </div>
+        )}
       </div>
 
       <div className={styles.formActions}>

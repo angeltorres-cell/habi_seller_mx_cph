@@ -135,6 +135,54 @@
   box-shadow: none;
 }
 
+.currencyWrap {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 0 16px;
+  transition: border-color 0.15s;
+  background: #fff;
+}
+
+.currencyWrap:focus-within {
+  border-color: var(--purple);
+}
+
+.currencySymbol {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--purple);
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.currencyInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  padding: 16px 0;
+  background: transparent;
+  min-width: 0;
+}
+
+.currencyInput::placeholder {
+  color: #ccc;
+  font-weight: 500;
+}
+
+.currencyCode {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+
 .thankYou {
   text-align: center;
   padding: 56px 28px;
