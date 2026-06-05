@@ -147,9 +147,10 @@ export default function MultiStepForm() {
         )}
 
         {currentQ.type === "currency" && (
-          <div className={styles.currencyWrap}>
+          <div className={styles.inputCurrencyContainer}>
             <span className={styles.currencySymbol}>$</span>
             <input
+              id="hipotecaInput"
               type="text"
               inputMode="numeric"
               className={styles.currencyInput}
@@ -157,7 +158,7 @@ export default function MultiStepForm() {
               value={currentAnswer}
               onChange={(e) => handleCurrencyChange(e.target.value)}
             />
-            <span className={styles.currencyCode}>MXN</span>
+            <span className={styles.currencyBadge}>MXN</span>
           </div>
         )}
       </div>
