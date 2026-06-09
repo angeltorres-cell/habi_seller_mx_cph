@@ -18,8 +18,7 @@ export default function IntroClient() {
         <header className={styles.header}>
           <span className={styles.readyBadge}>✓ Tu oferta Habi está lista</span>
           <h1 className={styles.title}>
-            Antes de verla, dinos:<br />
-            <em>¿Estás buscando cambiarte de casa?</em>
+            ¡Tenemos una novedad para ti! Diseñamos un nuevo servicio exclusivo en fase beta para quienes venden para volver a comprar. Asegura tu lugar en la lista de acceso.
           </h1>
           <p className={styles.filter}>
             Tenemos dos caminos según tu situación. Elige el que mejor te describe:
@@ -36,7 +35,7 @@ export default function IntroClient() {
             <p className={styles.cardDesc}>
               Habi compra tu inmueble, <strong>liquida tu hipoteca Infonavit</strong> y
               te otorga <strong>3 meses de estancia libre</strong> en tu propiedad para que tu
-              puntaje crediticio se restablezca y puedas tramitar tu nuevo crédito sin carreras.
+              puntaje crediticio se restablezca y puedas tramitar tu nuevo crédito sin complicaciones.
             </p>
             <ul className={styles.checkList}>
               <li><span className={styles.check}>✓</span> Hipoteca Infonavit liquidada</li>
@@ -46,7 +45,7 @@ export default function IntroClient() {
             </ul>
             <div className={styles.costTag}>Costo adicional: <strong>+6%</strong> sobre tu oferta base</div>
             <a href={LANDING_URL} className={styles.btnPrimary}>
-              Quiero conocer más sobre el programa
+              Unirme a la lista de espera del programa
             </a>
           </div>
 
@@ -54,12 +53,8 @@ export default function IntroClient() {
           <div className={`${styles.card} ${styles.cardStandard}`}>
             <h2 className={styles.cardTitle}>Oferta Estándar</h2>
             <p className={styles.cardDesc}>
-              Vende tu inmueble directamente al precio Habi. Proceso rápido, pago seguro
+              Recibe una oferta directa por tu inmueble. Proceso rápido, pago seguro
               y sin publicación ni visitas de desconocidos.
-            </p>
-            <p className={styles.cardIdeal}>
-              <strong>Ideal si:</strong> Ya tienes dónde vivir después de la venta o no necesitas
-              tiempo adicional para tramitar tu siguiente crédito.
             </p>
             <a
               href={ofertaUrl}
