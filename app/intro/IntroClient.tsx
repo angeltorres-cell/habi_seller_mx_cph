@@ -4,10 +4,11 @@ import { useSearchParams } from "next/navigation";
 import styles from "./intro.module.css";
 
 const LANDING_URL = "https://habi-seller-mx-cph.vercel.app/";
+const OFERTA_ESTANDAR_URL = "https://ofertas.tuhabi.mx/f9e1c4b9-17e0-4e44-a104-6feec893099c";
 
 export default function IntroClient() {
   const searchParams = useSearchParams();
-  const ofertaUrl = searchParams.get("oferta");
+  const ofertaUrl = searchParams.get("oferta") ?? OFERTA_ESTANDAR_URL;
 
   return (
     <main className={styles.page}>
@@ -28,31 +29,29 @@ export default function IntroClient() {
         {/* ── TARJETAS DE OPCIÓN ── */}
         <div className={styles.cards}>
 
-          {/* OPCIÓN B — PREMIUM (primero en DOM → primero en mobile) */}
+          {/* PROGRAMA CAMBIO DE CASA — PREMIUM */}
           <div className={`${styles.card} ${styles.cardPremium}`}>
-            <div className={styles.premiumBadge}>★ Nuevo · Exclusivo Infonavit</div>
-            <div className={styles.cardLabel}>Opción B</div>
+            <div className={styles.premiumBadge}>★ Nuevo Exclusivo</div>
             <h2 className={styles.cardTitle}>Programa Cambio de Casa</h2>
             <p className={styles.cardDesc}>
-              Habi compra tu inmueble, <strong>liquida tu hipoteca Infonavit al cierre</strong> y
+              Habi compra tu inmueble, <strong>liquida tu hipoteca Infonavit</strong> y
               te otorga <strong>3 meses de estancia libre</strong> en tu propiedad para que tu
               puntaje crediticio se restablezca y puedas tramitar tu nuevo crédito sin carreras.
             </p>
             <ul className={styles.checkList}>
-              <li><span className={styles.check}>✓</span> Hipoteca Infonavit liquidada en el cierre</li>
+              <li><span className={styles.check}>✓</span> Hipoteca Infonavit liquidada</li>
               <li><span className={styles.check}>✓</span> 3 meses de estancia sin costo de renta</li>
               <li><span className={styles.check}>✓</span> Tiempo real para asegurar tu próximo hogar</li>
               <li><span className={styles.check}>✓</span> Un solo proceso, sin intermediarios</li>
             </ul>
             <div className={styles.costTag}>Costo adicional: <strong>+6%</strong> sobre tu oferta base</div>
             <a href={LANDING_URL} className={styles.btnPrimary}>
-              Quiero el Programa Cambio de Casa →
+              Quiero conocer más sobre el programa
             </a>
           </div>
 
-          {/* OPCIÓN A — ESTÁNDAR */}
+          {/* OFERTA ESTÁNDAR */}
           <div className={`${styles.card} ${styles.cardStandard}`}>
-            <div className={styles.cardLabel}>Opción A</div>
             <h2 className={styles.cardTitle}>Oferta Estándar</h2>
             <p className={styles.cardDesc}>
               Vende tu inmueble directamente al precio Habi. Proceso rápido, pago seguro
@@ -62,20 +61,14 @@ export default function IntroClient() {
               <strong>Ideal si:</strong> Ya tienes dónde vivir después de la venta o no necesitas
               tiempo adicional para tramitar tu siguiente crédito.
             </p>
-            {ofertaUrl ? (
-              <a
-                href={ofertaUrl}
-                className={styles.btnSecondary}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Ver mi oferta de compra estándar
-              </a>
-            ) : (
-              <button className={styles.btnSecondaryDisabled} disabled>
-                Ver mi oferta de compra estándar
-              </button>
-            )}
+            <a
+              href={ofertaUrl}
+              className={styles.btnSecondary}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver mi oferta de compra estándar
+            </a>
           </div>
 
         </div>
