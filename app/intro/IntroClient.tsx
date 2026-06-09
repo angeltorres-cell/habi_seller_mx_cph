@@ -20,9 +20,6 @@ export default function IntroClient() {
           <h1 className={styles.title}>
             ¡Tenemos una novedad para ti! Diseñamos un nuevo servicio exclusivo en fase beta para quienes venden para volver a comprar. Asegura tu lugar en la lista de acceso.
           </h1>
-          <p className={styles.filter}>
-            Tenemos dos caminos según tu situación. Elige el que mejor te describe:
-          </p>
         </header>
 
         {/* ── TARJETAS DE OPCIÓN ── */}
