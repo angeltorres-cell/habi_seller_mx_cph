@@ -11,45 +11,78 @@ export default function IntroClient() {
 
   return (
     <main className={styles.page}>
-      <div className={styles.card}>
-        <div className={styles.logo}>habi</div>
+      <div className={styles.wrapper}>
 
-        <h1 className={styles.title}>
-          Conoce tu oferta de compra y asegura la transición a tu próximo hogar
-          sin salir de casa
-        </h1>
+        {/* ── ENCABEZADO ── */}
+        <header className={styles.header}>
+          <span className={styles.readyBadge}>✓ Tu oferta Habi está lista</span>
+          <h1 className={styles.title}>
+            Antes de verla, dinos:<br />
+            <em>¿Estás buscando cambiarte de casa?</em>
+          </h1>
+          <p className={styles.filter}>
+            Tenemos dos caminos según tu situación. Elige el que mejor te describe:
+          </p>
+        </header>
 
-        <p className={styles.subtitle}>
-          En Habi no solo compramos tu inmueble. Si estás buscando cambiar de
-          casa, diseñamos un programa exclusivo donde liquidamos tu hipoteca
-          actual con Infonavit y te damos hasta 3 meses de estancia libre para
-          que tu puntaje crediticio se restablezca y asegures tu próximo hogar
-          con total tranquilidad.
-        </p>
+        {/* ── TARJETAS DE OPCIÓN ── */}
+        <div className={styles.cards}>
 
-        <div className={styles.actions}>
-          <a href={LANDING_URL} className={styles.btnPrimary}>
-            Me interesa
-          </a>
-
-          {ofertaUrl ? (
-            <a
-              href={ofertaUrl}
-              className={styles.btnSecondary}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Conocer mi oferta de compra estándar
+          {/* OPCIÓN B — PREMIUM (primero en DOM → primero en mobile) */}
+          <div className={`${styles.card} ${styles.cardPremium}`}>
+            <div className={styles.premiumBadge}>★ Nuevo · Exclusivo Infonavit</div>
+            <div className={styles.cardLabel}>Opción B</div>
+            <h2 className={styles.cardTitle}>Programa Cambio de Casa</h2>
+            <p className={styles.cardDesc}>
+              Habi compra tu inmueble, <strong>liquida tu hipoteca Infonavit al cierre</strong> y
+              te otorga <strong>3 meses de estancia libre</strong> en tu propiedad para que tu
+              puntaje crediticio se restablezca y puedas tramitar tu nuevo crédito sin carreras.
+            </p>
+            <ul className={styles.checkList}>
+              <li><span className={styles.check}>✓</span> Hipoteca Infonavit liquidada en el cierre</li>
+              <li><span className={styles.check}>✓</span> 3 meses de estancia sin costo de renta</li>
+              <li><span className={styles.check}>✓</span> Tiempo real para asegurar tu próximo hogar</li>
+              <li><span className={styles.check}>✓</span> Un solo proceso, sin intermediarios</li>
+            </ul>
+            <div className={styles.costTag}>Costo adicional: <strong>+6%</strong> sobre tu oferta base</div>
+            <a href={LANDING_URL} className={styles.btnPrimary}>
+              Quiero el Programa Cambio de Casa →
             </a>
-          ) : (
-            <button className={styles.btnSecondaryDisabled} disabled>
-              Conocer mi oferta de compra estándar
-            </button>
-          )}
+          </div>
+
+          {/* OPCIÓN A — ESTÁNDAR */}
+          <div className={`${styles.card} ${styles.cardStandard}`}>
+            <div className={styles.cardLabel}>Opción A</div>
+            <h2 className={styles.cardTitle}>Oferta Estándar</h2>
+            <p className={styles.cardDesc}>
+              Vende tu inmueble directamente al precio Habi. Proceso rápido, pago seguro
+              y sin publicación ni visitas de desconocidos.
+            </p>
+            <p className={styles.cardIdeal}>
+              <strong>Ideal si:</strong> Ya tienes dónde vivir después de la venta o no necesitas
+              tiempo adicional para tramitar tu siguiente crédito.
+            </p>
+            {ofertaUrl ? (
+              <a
+                href={ofertaUrl}
+                className={styles.btnSecondary}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ver mi oferta de compra estándar
+              </a>
+            ) : (
+              <button className={styles.btnSecondaryDisabled} disabled>
+                Ver mi oferta de compra estándar
+              </button>
+            )}
+          </div>
+
         </div>
 
+        {/* ── PIE ── */}
         <p className={styles.footnote}>
-          Sin compromiso · Proceso 100% digital
+          Sin compromiso · Proceso 100% digital · Habi México
         </p>
       </div>
     </main>

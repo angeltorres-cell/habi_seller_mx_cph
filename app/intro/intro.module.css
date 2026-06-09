@@ -1,84 +1,214 @@
+/* ── PAGE ── */
 .page {
   min-height: 100vh;
-  background: linear-gradient(150deg, #5e00b5 0%, #8611fe 55%, #b06dff 100%);
+  background: linear-gradient(150deg, #4a00b0 0%, #8611fe 60%, #b06dff 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px 24px;
+  padding: 48px 24px;
 }
 
-.card {
-  background: #ffffff;
-  border-radius: 24px;
-  padding: 48px 44px;
-  max-width: 680px;
+.wrapper {
+  max-width: 880px;
   width: 100%;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18);
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
 }
 
-.logo {
-  font-size: 28px;
-  font-weight: 900;
-  color: #8611fe;
-  letter-spacing: -1px;
-  margin-bottom: 32px;
-  text-transform: lowercase;
+/* ── HEADER ── */
+.header {
+  text-align: center;
+  color: #ffffff;
+  max-width: 620px;
+}
+
+.readyBadge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+  letter-spacing: 0.3px;
 }
 
 .title {
-  font-size: clamp(22px, 3.5vw, 30px);
+  font-size: clamp(26px, 4vw, 38px);
   font-weight: 900;
-  color: #1a1a1a;
-  line-height: 1.25;
-  margin-bottom: 20px;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  color: #ffffff;
 }
 
-.subtitle {
-  font-size: 15px;
-  color: #555555;
-  line-height: 1.7;
-  margin-bottom: 40px;
+.title em {
+  font-style: normal;
+  color: #fde68a;
 }
 
-.actions {
+.filter {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+}
+
+/* ── CARDS GRID ── */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  align-items: start;
+}
+
+/* ── CARD BASE ── */
+.card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 32px 28px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  margin-bottom: 24px;
+  gap: 16px;
+  position: relative;
 }
 
+.cardLabel {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #aaaaaa;
+}
+
+.cardTitle {
+  font-size: 20px;
+  font-weight: 900;
+  color: #1a1a1a;
+  line-height: 1.2;
+}
+
+.cardDesc {
+  font-size: 14px;
+  color: #555555;
+  line-height: 1.65;
+}
+
+/* ── CARD PREMIUM (Opción B) ── */
+.cardPremium {
+  border: 2.5px solid #8611fe;
+  box-shadow: 0 8px 40px rgba(134, 17, 254, 0.22);
+  order: -1; /* primero en desktop también */
+}
+
+.premiumBadge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #8611fe, #b06dff);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 5px 16px;
+  border-radius: 100px;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+.checkList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 0;
+}
+
+.checkList li {
+  font-size: 13px;
+  color: #333333;
+  font-weight: 600;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.4;
+}
+
+.check {
+  color: #8611fe;
+  font-weight: 900;
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.costTag {
+  font-size: 12px;
+  color: #888888;
+  background: #f8f3ff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.costTag strong {
+  color: #8611fe;
+}
+
+/* ── CARD STANDARD (Opción A) ── */
+.cardStandard {
+  border: 2px solid #e0e0e0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.cardIdeal {
+  font-size: 13px;
+  color: #777777;
+  line-height: 1.55;
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+/* ── BUTTONS ── */
 .btnPrimary {
   display: block;
+  text-align: center;
   background: linear-gradient(135deg, #8611fe 0%, #b06dff 100%);
   color: #ffffff;
   font-family: "Montserrat", sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 800;
-  padding: 16px 32px;
+  padding: 15px 24px;
   border-radius: 14px;
   text-decoration: none;
   transition: transform 0.15s, box-shadow 0.15s;
-  box-shadow: 0 6px 24px rgba(134, 17, 254, 0.35);
+  box-shadow: 0 6px 24px rgba(134, 17, 254, 0.4);
+  margin-top: auto;
 }
 
 .btnPrimary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 32px rgba(134, 17, 254, 0.45);
+  box-shadow: 0 10px 32px rgba(134, 17, 254, 0.5);
 }
 
 .btnSecondary {
   display: block;
+  text-align: center;
   background: transparent;
   color: #8611fe;
   font-family: "Montserrat", sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
-  padding: 15px 32px;
+  padding: 14px 24px;
   border-radius: 14px;
   border: 2px solid #8611fe;
   text-decoration: none;
   transition: background 0.15s, color 0.15s;
+  margin-top: auto;
 }
 
 .btnSecondary:hover {
@@ -88,25 +218,38 @@
 .btnSecondaryDisabled {
   display: block;
   width: 100%;
+  text-align: center;
   background: transparent;
   color: #cccccc;
   font-family: "Montserrat", sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
-  padding: 15px 32px;
+  padding: 14px 24px;
   border-radius: 14px;
   border: 2px solid #e0e0e0;
   cursor: not-allowed;
+  margin-top: auto;
 }
 
+/* ── FOOTNOTE ── */
 .footnote {
   font-size: 12px;
-  color: #aaaaaa;
+  color: rgba(255, 255, 255, 0.55);
   font-weight: 500;
+  text-align: center;
 }
 
-@media (max-width: 600px) {
+/* ── RESPONSIVE: mobile → jerarquía vertical B arriba, A abajo ── */
+@media (max-width: 660px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .cardPremium {
+    order: -1;
+  }
+
   .card {
-    padding: 36px 24px;
+    padding: 28px 22px;
   }
 }
