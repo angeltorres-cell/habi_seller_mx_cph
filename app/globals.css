@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
 
 :root {
-  --purple: #7B2D8E;
-  --purple-dark: #5C1D6E;
-  --purple-light: #F3E8F9;
-  --purple-gradient: linear-gradient(135deg, #7B2D8E 0%, #9B4DCA 100%);
+  --purple: #8611fe;
+  --purple-dark: #6500cc;
+  --purple-light: #f3e6ff;
+  --purple-gradient: linear-gradient(135deg, #8611fe 0%, #b06dff 100%);
   --bg: #FFFFFF;
   --bg-gray: #F5F5F5;
   --text: #1A1A1A;

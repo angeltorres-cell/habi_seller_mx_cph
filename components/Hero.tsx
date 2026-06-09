@@ -12,11 +12,7 @@ export default function Hero() {
             Recibe una oferta directa por tu inmueble. Sin publicar, sin visitas
             de desconocidos, sin complicaciones.
           </p>
-          <a href="#formulario" className={styles.btnCta}>
-            Aplicar ahora →
-          </a>
         </div>
-        <div className={styles.heroImg}>🏠</div>
       </div>
     </section>
   );

@@ -1,0 +1,112 @@
+.page {
+  min-height: 100vh;
+  background: linear-gradient(150deg, #5e00b5 0%, #8611fe 55%, #b06dff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 48px 44px;
+  max-width: 680px;
+  width: 100%;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18);
+  text-align: center;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 900;
+  color: #8611fe;
+  letter-spacing: -1px;
+  margin-bottom: 32px;
+  text-transform: lowercase;
+}
+
+.title {
+  font-size: clamp(22px, 3.5vw, 30px);
+  font-weight: 900;
+  color: #1a1a1a;
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: #555555;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.btnPrimary {
+  display: block;
+  background: linear-gradient(135deg, #8611fe 0%, #b06dff 100%);
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 16px 32px;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 6px 24px rgba(134, 17, 254, 0.35);
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(134, 17, 254, 0.45);
+}
+
+.btnSecondary {
+  display: block;
+  background: transparent;
+  color: #8611fe;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 15px 32px;
+  border-radius: 14px;
+  border: 2px solid #8611fe;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btnSecondary:hover {
+  background: #f3e6ff;
+}
+
+.btnSecondaryDisabled {
+  display: block;
+  width: 100%;
+  background: transparent;
+  color: #cccccc;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 15px 32px;
+  border-radius: 14px;
+  border: 2px solid #e0e0e0;
+  cursor: not-allowed;
+}
+
+.footnote {
+  font-size: 12px;
+  color: #aaaaaa;
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 36px 24px;
+  }
+}

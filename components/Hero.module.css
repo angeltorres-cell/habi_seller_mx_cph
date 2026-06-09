@@ -1,5 +1,5 @@
 .hero {
-  background: linear-gradient(135deg, #6b1d7e 0%, #8b3da0 60%, #a855c8 100%);
+  background: linear-gradient(135deg, #5e00b5 0%, #8611fe 60%, #b06dff 100%);
   padding: 0 24px;
 }
 
@@ -56,18 +56,6 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-.heroImg {
-  flex-shrink: 0;
-  width: 280px;
-  height: 200px;
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 64px;
-}
-
 @media (max-width: 700px) {
   .heroInner {
     flex-direction: column;
@@ -78,10 +66,5 @@
 
   .heroText p {
     margin: 0 auto 24px;
-  }
-
-  .heroImg {
-    width: 200px;
-    height: 140px;
   }
 }
