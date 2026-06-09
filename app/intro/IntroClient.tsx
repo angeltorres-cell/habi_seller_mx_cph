@@ -16,9 +16,9 @@ export default function IntroClient() {
 
         {/* ── ENCABEZADO ── */}
         <header className={styles.header}>
-          <span className={styles.readyBadge}>✓ Tu oferta Habi está lista</span>
+          <span className={styles.readyBadge}>✓ Tu oferta TuHabi está lista</span>
           <h1 className={styles.title}>
-            ¡Tenemos una novedad para ti! Diseñamos un nuevo servicio exclusivo en fase beta para quienes venden para volver a comprar. Asegura tu lugar en la lista de acceso.
+            ¡Tenemos una novedad para ti! Diseñamos un nuevo servicio exclusivo para quienes venden para volver a comprar. Asegura tu lugar en la lista de acceso.
           </h1>
         </header>
 
@@ -30,7 +30,7 @@ export default function IntroClient() {
             <div className={styles.premiumBadge}>★ Nuevo Exclusivo</div>
             <h2 className={styles.cardTitle}>Programa Cambio de Casa</h2>
             <p className={styles.cardDesc}>
-              Habi compra tu inmueble, <strong>liquida tu hipoteca Infonavit</strong> y
+              TuHabi compra tu inmueble, <strong>liquida tu hipoteca Infonavit</strong> y
               te otorga <strong>3 meses de estancia libre</strong> en tu propiedad para que tu
               puntaje crediticio se restablezca y puedas tramitar tu nuevo crédito sin complicaciones.
             </p>
@@ -67,7 +67,7 @@ export default function IntroClient() {
 
         {/* ── PIE ── */}
         <p className={styles.footnote}>
-          Sin compromiso · Proceso 100% digital · Habi México
+          Sin compromiso · Proceso 100% digital · TuHabi México
         </p>
       </div>
     </main>
