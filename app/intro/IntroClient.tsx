@@ -40,7 +40,7 @@ export default function IntroClient() {
               <li><span className={styles.check}>✓</span> Tiempo real para asegurar tu próximo hogar</li>
               <li><span className={styles.check}>✓</span> Un solo proceso, sin intermediarios</li>
             </ul>
-            <div className={styles.costTag}>Costo adicional: <strong>+6%</strong> sobre tu oferta base</div>
+            <div className={styles.costTag}>Costo adicional: <strong>-6%</strong> sobre tu oferta base</div>
             <a href={LANDING_URL} className={styles.btnPrimary}>
               Unirme a la lista de espera del programa
             </a>
