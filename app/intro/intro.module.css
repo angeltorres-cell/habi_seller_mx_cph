@@ -56,6 +56,40 @@
   line-height: 1.5;
 }
 
+/* ── BLOQUE FINANCIEROS (ruta /intro/[uuid]) ── */
+.financialsBlock {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  padding: 20px 32px;
+  width: 100%;
+}
+
+.financialItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.financialLabel {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.financialValue {
+  font-size: 22px;
+  font-weight: 900;
+  color: #ffffff;
+}
+
 /* ── CARDS GRID ── */
 .cards {
   display: grid;
