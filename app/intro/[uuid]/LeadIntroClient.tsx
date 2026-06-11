@@ -8,15 +8,15 @@ const OFERTA_ESTANDAR_URL =
   "https://ofertas.tuhabi.mx/f9e1c4b9-17e0-4e44-a104-6feec893099c";
 
 type LeadProperties = {
-  link_bnpl__comercial_?: string;
-  bnpl_1__comercial_?: string;
-  final_final_aprobado_b_o?: string;
-  oferta_final_prestamo_mx_calculada?: string;
-  precio_comite?: string;
-  precio_comite_original?: string;
-  pipeline?: string;
-  country?: string;
-  deal_uuid?: string;
+  link_bnpl__comercial_?: string | null;
+  bnpl_1__comercial_?: string | null;
+  final_final_aprobado_b_o?: string | null;
+  oferta_final_prestamo_mx_calculada?: string | null;
+  precio_comite?: string | null;
+  precio_comite_original?: string | null;
+  pipeline?: string | null;
+  country?: string | null;
+  deal_uuid?: string | null;
 };
 
 type Lead = {
@@ -24,15 +24,40 @@ type Lead = {
   properties: LeadProperties;
 };
 
-function formatMXN(val?: string) {
-  if (!val) return null;
-  const num = parseFloat(val);
-  if (isNaN(num)) return val;
+function formatMXN(val: number | string | null | undefined): string | null {
+  if (val === null || val === undefined || val === "") return null;
+  const num = typeof val === "number" ? val : parseFloat(val);
+  if (isNaN(num)) return String(val);
   return new Intl.NumberFormat("es-MX", {
     style: "currency",
     currency: "MXN",
     maximumFractionDigits: 0,
   }).format(num);
+}
+
+function toNum(val: string | null | undefined): number | null {
+  if (!val) return null;
+  const n = parseFloat(val);
+  return isNaN(n) ? null : n;
+}
+
+function resolveOfertaBase(p: LeadProperties): number | null {
+  const bnpl = toNum(p.bnpl_1__comercial_);
+  const aprobado = toNum(p.final_final_aprobado_b_o);
+  const calculada = toNum(p.oferta_final_prestamo_mx_calculada);
+
+  // Caso 1: bnpl null, aprobado null → calculada
+  if (bnpl === null && aprobado === null) return calculada;
+
+  // Caso 2: bnpl existe, aprobado null → min(bnpl, calculada)
+  if (bnpl !== null && aprobado === null)
+    return calculada !== null ? Math.min(bnpl, calculada) : bnpl;
+
+  // Caso 3: bnpl null, aprobado existe → aprobado
+  if (bnpl === null && aprobado !== null) return aprobado;
+
+  // Caso 4: bnpl existe, aprobado existe → min(bnpl, aprobado)
+  return Math.min(bnpl!, aprobado!);
 }
 
 export default function LeadIntroClient({ uuid }: { uuid: string }) {
@@ -86,6 +111,9 @@ export default function LeadIntroClient({ uuid }: { uuid: string }) {
     p.precio_comite ||
     p.oferta_final_prestamo_mx_calculada ||
     p.final_final_aprobado_b_o;
+  const ofertaBase = resolveOfertaBase(p);
+  const ofertaConPrograma =
+    ofertaBase !== null ? Math.round(ofertaBase * 0.94) : null;
 
   return (
     <main className={styles.page}>
@@ -162,7 +190,11 @@ export default function LeadIntroClient({ uuid }: { uuid: string }) {
               </li>
             </ul>
             <div className={styles.costTag}>
-              Costo adicional: <strong>-6%</strong> sobre tu oferta base
+              {ofertaConPrograma !== null ? (
+                <>Valor de oferta con el programa: <strong>{formatMXN(ofertaConPrograma)}</strong></>
+              ) : (
+                <>Costo adicional: <strong>-6%</strong> sobre tu oferta base</>
+              )}
             </div>
             <a href={LANDING_URL} className={styles.btnPrimary}>
               Unirme a la lista de espera del programa
@@ -176,6 +208,11 @@ export default function LeadIntroClient({ uuid }: { uuid: string }) {
               Recibe una oferta directa por tu inmueble. Proceso rápido, pago
               seguro y sin publicación ni visitas de desconocidos.
             </p>
+            {ofertaBase !== null && (
+              <div className={styles.ofertaValor}>
+                Valor de oferta: <strong>{formatMXN(ofertaBase)}</strong>
+              </div>
+            )}
             <a
               href={ofertaUrl}
               className={styles.btnSecondary}

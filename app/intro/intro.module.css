@@ -179,6 +179,20 @@
   margin-top: 1px;
 }
 
+.ofertaValor {
+  font-size: 13px;
+  color: #555555;
+  background: #f8f3ff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.ofertaValor strong {
+  color: #8611fe;
+  font-size: 15px;
+}
+
 .costTag {
   font-size: 12px;
   color: #888888;
