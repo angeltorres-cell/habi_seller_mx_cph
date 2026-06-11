@@ -19,7 +19,7 @@ export async function GET(
   const { uuid } = await params;
 
   const res = await fetch(
-    "https://api.hubapi.com/crm/v3/objects/contacts/search",
+    "https://api.hubapi.com/crm/v3/objects/deals/search",
     {
       method: "POST",
       headers: {
@@ -31,7 +31,7 @@ export async function GET(
           {
             filters: [
               {
-                propertyName: "[deal_uuid]",
+                propertyName: "deal_uuid",
                 operator: "EQ",
                 value: uuid,
               },
