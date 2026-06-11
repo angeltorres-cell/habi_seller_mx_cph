@@ -107,10 +107,6 @@ export default function LeadIntroClient({ uuid }: { uuid: string }) {
 
   const { properties: p } = lead;
   const ofertaUrl = p.link_bnpl__comercial_ ?? OFERTA_ESTANDAR_URL;
-  const hasFinancials =
-    p.precio_comite ||
-    p.oferta_final_prestamo_mx_calculada ||
-    p.final_final_aprobado_b_o;
   const ofertaBase = resolveOfertaBase(p);
   const ofertaConPrograma =
     ofertaBase !== null ? Math.round(ofertaBase * 0.94) : null;
@@ -127,36 +123,6 @@ export default function LeadIntroClient({ uuid }: { uuid: string }) {
             lista de acceso.
           </h1>
         </header>
-
-        {/* BLOQUE DE FINANCIEROS PERSONALIZADOS */}
-        {hasFinancials && (
-          <div className={styles.financialsBlock}>
-            {p.precio_comite && (
-              <div className={styles.financialItem}>
-                <span className={styles.financialLabel}>Precio comité</span>
-                <span className={styles.financialValue}>
-                  {formatMXN(p.precio_comite)}
-                </span>
-              </div>
-            )}
-            {p.oferta_final_prestamo_mx_calculada && (
-              <div className={styles.financialItem}>
-                <span className={styles.financialLabel}>Oferta calculada</span>
-                <span className={styles.financialValue}>
-                  {formatMXN(p.oferta_final_prestamo_mx_calculada)}
-                </span>
-              </div>
-            )}
-            {p.final_final_aprobado_b_o && (
-              <div className={styles.financialItem}>
-                <span className={styles.financialLabel}>Monto aprobado</span>
-                <span className={styles.financialValue}>
-                  {formatMXN(p.final_final_aprobado_b_o)}
-                </span>
-              </div>
-            )}
-          </div>
-        )}
 
         {/* CARDS */}
         <div className={styles.cards}>
