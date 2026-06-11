@@ -6,7 +6,7 @@ export default function CostSection() {
       <div className={styles.inline}>
         <span className={styles.text}>Costo del servicio:</span>
         <span className={styles.num}>
-          5<span className={styles.sym}>%</span>
+          -6<span className={styles.sym}>%</span>
         </span>
         <span className={styles.detail}>sobre el precio de compra de tu inmueble</span>
       </div>

@@ -34,6 +34,7 @@ export default function ComoFunciona() {
           </div>
         ))}
       </div>
+      <a href="#formulario" className={styles.btnInteresa}>Me interesa</a>
     </section>
   );
 }

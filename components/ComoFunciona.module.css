@@ -59,6 +59,23 @@
   line-height: 1.55;
 }
 
+.btnInteresa {
+  display: inline-block;
+  margin-top: 36px;
+  padding: 14px 40px;
+  background: var(--purple);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.btnInteresa:hover {
+  opacity: 0.85;
+}
+
 @media (max-width: 700px) {
   .grid {
     grid-template-columns: 1fr;
