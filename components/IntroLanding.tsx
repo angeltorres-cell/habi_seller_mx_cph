@@ -175,7 +175,7 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
             >
               Unirme a la lista de espera del programa
             </button>
-            <p className={styles.tycNote}>Aplica TyC</p>
+            <p className={styles.tycNote}>Aplica términos y condiciones*</p>
           </div>
 
           {/* OFERTA ESTÁNDAR */}

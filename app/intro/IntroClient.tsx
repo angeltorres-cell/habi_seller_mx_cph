@@ -44,7 +44,7 @@ export default function IntroClient() {
             <a href={LANDING_URL} className={styles.btnPrimary}>
               Unirme a la lista de espera del programa
             </a>
-            <p className={styles.tycNote}>Aplica TyC</p>
+            <p className={styles.tycNote}>Aplica términos y condiciones*</p>
           </div>
 
           {/* OFERTA ESTÁNDAR */}
