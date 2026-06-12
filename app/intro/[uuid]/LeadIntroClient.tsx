@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import styles from "../intro.module.css";
 
-const LANDING_URL = "https://habi-seller-mx-cph.vercel.app/";
 const OFERTA_ESTANDAR_URL =
   "https://ofertas.tuhabi.mx/f9e1c4b9-17e0-4e44-a104-6feec893099c";
 
@@ -162,7 +161,7 @@ export default function LeadIntroClient({ uuid }: { uuid: string }) {
                 <>Costo adicional: <strong>-6%</strong> sobre tu oferta base</>
               )}
             </div>
-            <a href={LANDING_URL} className={styles.btnPrimary}>
+            <a href={`/${uuid}`} className={styles.btnPrimary}>
               Unirme a la lista de espera del programa
             </a>
           </div>
