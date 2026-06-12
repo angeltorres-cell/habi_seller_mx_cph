@@ -36,14 +36,15 @@ export default function IntroClient() {
             </p>
             <ul className={styles.checkList}>
               <li><span className={styles.check}>✓</span> Hipoteca Infonavit liquidada</li>
-              <li><span className={styles.check}>✓</span> 3 meses de estancia sin costo de renta</li>
+              <li><span className={styles.check}>✓</span> No necesitas mudarte a un lugar temporal</li>
               <li><span className={styles.check}>✓</span> Tiempo real para asegurar tu próximo hogar</li>
-              <li><span className={styles.check}>✓</span> Un solo proceso, sin intermediarios</li>
+              <li><span className={styles.check}>✓</span> Ahorro de costo de una mudanza adicional</li>
             </ul>
             <div className={styles.costTag}>Costo adicional: <strong>-6%</strong> sobre tu oferta base</div>
             <a href={LANDING_URL} className={styles.btnPrimary}>
               Unirme a la lista de espera del programa
             </a>
+            <p className={styles.tycNote}>Aplica TyC</p>
           </div>
 
           {/* OFERTA ESTÁNDAR */}
@@ -53,6 +54,10 @@ export default function IntroClient() {
               Recibe una oferta directa por tu inmueble. Proceso rápido, pago seguro
               y sin publicación ni visitas de desconocidos.
             </p>
+            <ul className={styles.checkList}>
+              <li><span className={styles.check}>✓</span> Revisa detalles de tu oferta de compra</li>
+              <li><span className={styles.check}>✓</span> Cierra y recibe tu dinero de forma segura</li>
+            </ul>
             <a
               href={ofertaUrl}
               className={styles.btnSecondary}
@@ -65,10 +70,6 @@ export default function IntroClient() {
 
         </div>
 
-        {/* ── PIE ── */}
-        <p className={styles.footnote}>
-          Sin compromiso · Proceso 100% digital · TuHabi México
-        </p>
       </div>
     </main>
   );
