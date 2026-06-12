@@ -16,6 +16,7 @@ type LeadProperties = {
   oferta_final_prestamo_mx_calculada?: string | null;
   precio_comite?: string | null;
   precio_comite_original?: string | null;
+  ask_price_comite_mx_hesh?: string | null;
   pipeline?: string | null;
   country?: string | null;
   deal_uuid?: string | null;

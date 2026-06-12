@@ -7,6 +7,7 @@ const HUBSPOT_PROPERTIES = [
   "oferta_final_prestamo_mx_calculada",
   "precio_comite",
   "precio_comite_original",
+  "ask_price_comite_mx_hesh",
   "pipeline",
   "country",
   "deal_uuid",
