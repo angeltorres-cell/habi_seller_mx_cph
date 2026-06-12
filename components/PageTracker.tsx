@@ -13,7 +13,7 @@ export default function PageTracker({ uuid, version }: Props) {
     if (process.env.NODE_ENV === "development") {
       console.log("🟣 Segment: page", properties);
     }
-    window.analytics?.page(undefined, properties);
+    window.analytics?.page(version, properties);
   }, [uuid, version]);
 
   return null;

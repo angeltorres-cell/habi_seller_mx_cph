@@ -6,7 +6,7 @@ declare global {
   interface Window {
     analytics?: {
       track(event: string, properties?: Record<string, unknown>): void;
-      page(category?: string, properties?: Record<string, unknown>): void;
+      page(category?: string, name?: string | Record<string, unknown>, properties?: Record<string, unknown>): void;
     };
   }
 }
@@ -99,7 +99,7 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
     if (process.env.NODE_ENV === "development") {
       console.log("🟣 Segment: page", properties);
     }
-    window.analytics?.page(undefined, properties);
+    window.analytics?.page(landing, properties);
   }, [uuid, landing]);
 
   useEffect(() => {

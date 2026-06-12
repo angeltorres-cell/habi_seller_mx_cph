@@ -14,7 +14,7 @@ export default function TrackedSection({ name, uuid, version, children }: Props)
   const ref = useRef<HTMLDivElement>(null);
   useSectionTracking(ref, name, uuid, version);
   return (
-    <div ref={ref} style={{ display: "contents" }}>
+    <div ref={ref}>
       {children}
     </div>
   );

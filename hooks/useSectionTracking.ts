@@ -6,7 +6,7 @@ declare global {
   interface Window {
     analytics?: {
       track(event: string, properties?: Record<string, unknown>): void;
-      page(category?: string, properties?: Record<string, unknown>): void;
+      page(category?: string, name?: string | Record<string, unknown>, properties?: Record<string, unknown>): void;
     };
   }
 }
