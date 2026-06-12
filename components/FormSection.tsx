@@ -1,7 +1,7 @@
 import styles from "./FormSection.module.css";
 import MultiStepForm from "./MultiStepForm";
 
-export default function FormSection() {
+export default function FormSection({ uuid }: { uuid?: string }) {
   return (
     <section className={styles.section} id="formulario">
       <div className={styles.wrap}>
@@ -9,7 +9,7 @@ export default function FormSection() {
           <h2>Cuéntanos tu situación</h2>
           <p>Así podemos prepararte una asesoría a tu medida</p>
         </div>
-        <MultiStepForm />
+        <MultiStepForm uuid={uuid} />
       </div>
     </section>
   );

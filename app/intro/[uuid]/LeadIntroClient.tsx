@@ -3,6 +3,22 @@
 import { useEffect, useState } from "react";
 import styles from "../intro.module.css";
 
+const SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbw6btcMsIvFgz0-gCT6Nlh7qExBg3E41FItxfSKqWshN4Fp21Fmg5kLyVo2n9N05C7ueg/exec";
+
+async function sendLog(logType: string, uuid: string, boton: string) {
+  const payload = { logType, uuid, boton, userAgent: navigator.userAgent };
+  await Promise.race([
+    fetch(SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify(payload),
+    }),
+    new Promise<void>((resolve) => setTimeout(resolve, 1500)),
+  ]);
+}
+
 const OFERTA_ESTANDAR_URL =
   "https://ofertas.tuhabi.mx/f9e1c4b9-17e0-4e44-a104-6feec893099c";
 
@@ -161,9 +177,16 @@ export default function LeadIntroClient({ uuid }: { uuid: string }) {
                 <>Costo adicional: <strong>-6%</strong> sobre tu oferta base</>
               )}
             </div>
-            <a href={`/${uuid}`} className={styles.btnPrimary}>
+            <button
+              type="button"
+              className={styles.btnPrimary}
+              onClick={async () => {
+                await sendLog("lista_espera", uuid, "Unirme a la lista de espera del programa");
+                window.location.href = `/${uuid}`;
+              }}
+            >
               Unirme a la lista de espera del programa
-            </a>
+            </button>
           </div>
 
           {/* OFERTA ESTÁNDAR */}
@@ -178,14 +201,16 @@ export default function LeadIntroClient({ uuid }: { uuid: string }) {
                 Valor de oferta: <strong>{formatMXN(ofertaBase)}</strong>
               </div>
             )}
-            <a
-              href={ofertaUrl}
+            <button
+              type="button"
               className={styles.btnSecondary}
-              target="_blank"
-              rel="noopener noreferrer"
+              onClick={async () => {
+                await sendLog("oferta_estandar", uuid, "Ver oferta estándar");
+                window.open(ofertaUrl, "_blank", "noopener,noreferrer");
+              }}
             >
               Ver mi oferta de compra estándar
-            </a>
+            </button>
           </div>
         </div>
 

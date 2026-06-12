@@ -11,9 +11,7 @@ export default async function UuidHomePage({
 }: {
   params: Promise<{ uuid: string }>;
 }) {
-  // uuid disponible para uso futuro (ej. pre-fill de formulario, tracking)
   const { uuid } = await params;
-  void uuid;
 
   return (
     <>
@@ -21,7 +19,7 @@ export default async function UuidHomePage({
       <Hero />
       <ComoFunciona />
       <Benefits />
-      <FormSection />
+      <FormSection uuid={uuid} />
       <CostSection />
       <Footer />
     </>

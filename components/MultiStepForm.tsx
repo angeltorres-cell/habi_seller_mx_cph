@@ -55,7 +55,7 @@ function formatCurrency(raw: string): string {
   return Number(digits).toLocaleString("es-MX");
 }
 
-export default function MultiStepForm() {
+export default function MultiStepForm({ uuid }: { uuid?: string }) {
   const [step, setStep] = useState(1);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
@@ -78,11 +78,13 @@ export default function MultiStepForm() {
 
   async function handleSubmit() {
     const payload = {
+      logType: "encuesta",
       landing: LANDING_ID,
       q1: answers.q1 ?? "",
       q2: answers.q2 ?? "",
       q3: answers.q3 ?? "",
-      q4: answers.q4 ?? "",
+      q4: answers.q4 ? answers.q4.replace(/[^\d]/g, "") : "",
+      uuid: uuid ?? "",
       userAgent: navigator.userAgent,
     };
 
