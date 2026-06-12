@@ -1,12 +1,12 @@
 import styles from "./CostSection.module.css";
 
-export default function CostSection() {
+export default function CostSection({ porcentaje = 6 }: { porcentaje?: number }) {
   return (
     <section className={styles.section}>
       <div className={styles.inline}>
         <span className={styles.text}>Costo del servicio:</span>
         <span className={styles.num}>
-          -6<span className={styles.sym}>%</span>
+          -{porcentaje}<span className={styles.sym}>%</span>
         </span>
         <span className={styles.detail}>sobre el precio de compra de tu inmueble</span>
       </div>

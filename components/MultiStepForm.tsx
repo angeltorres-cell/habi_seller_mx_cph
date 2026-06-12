@@ -55,7 +55,7 @@ function formatCurrency(raw: string): string {
   return Number(digits).toLocaleString("es-MX");
 }
 
-export default function MultiStepForm({ uuid }: { uuid?: string }) {
+export default function MultiStepForm({ uuid, version }: { uuid?: string; version?: string }) {
   const [step, setStep] = useState(1);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
@@ -85,6 +85,7 @@ export default function MultiStepForm({ uuid }: { uuid?: string }) {
       q3: answers.q3 ?? "",
       q4: answers.q4 ? answers.q4.replace(/[^\d]/g, "") : "",
       uuid: uuid ?? "",
+      version: version ?? "",
       userAgent: navigator.userAgent,
     };
 

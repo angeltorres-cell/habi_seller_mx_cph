@@ -6,7 +6,7 @@ import FormSection from "@/components/FormSection";
 import CostSection from "@/components/CostSection";
 import Footer from "@/components/Footer";
 
-export default async function UuidHomePage({
+export default async function V2UuidPage({
   params,
 }: {
   params: Promise<{ uuid: string }>;
@@ -19,8 +19,8 @@ export default async function UuidHomePage({
       <Hero />
       <ComoFunciona />
       <Benefits />
-      <FormSection uuid={uuid} version="intro" />
-      <CostSection porcentaje={6} />
+      <FormSection uuid={uuid} version="intro-v2" />
+      <CostSection porcentaje={3} />
       <Footer />
     </>
   );

@@ -9,7 +9,9 @@ const SCRIPT_URL =
 export default function MeInteresaButton() {
   const pathname = usePathname();
   const segments = pathname.split("/").filter(Boolean);
-  const uuid = segments.length === 1 ? segments[0] : "";
+  const isV2 = segments[0] === "v2";
+  const uuid = isV2 ? (segments[1] ?? "") : (segments[0] ?? "");
+  const version = isV2 ? "intro-v2" : "intro";
 
   async function handleClick() {
     fetch(SCRIPT_URL, {
@@ -19,6 +21,7 @@ export default function MeInteresaButton() {
       body: JSON.stringify({
         logType: "me_interesa",
         uuid,
+        version,
         boton: "Me interesa",
         userAgent: navigator.userAgent,
       }),

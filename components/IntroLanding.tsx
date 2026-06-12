@@ -170,7 +170,7 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
               className={styles.btnPrimary}
               onClick={async () => {
                 await sendLog("lista_espera", uuid, "Unirme a la lista de espera del programa", landing);
-                window.location.href = `/${uuid}`;
+                window.location.href = landing === "intro-v2" ? `/v2/${uuid}` : `/${uuid}`;
               }}
             >
               Unirme a la lista de espera del programa
