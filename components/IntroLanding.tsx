@@ -38,7 +38,7 @@ async function sendLog(
   boton: string,
   landing: string
 ) {
-  const payload = { logType, uuid, boton, landing, userAgent: navigator.userAgent };
+  const payload = { logType, uuid, boton, version: landing, userAgent: navigator.userAgent };
   await Promise.race([
     fetch(SCRIPT_URL, {
       method: "POST",
