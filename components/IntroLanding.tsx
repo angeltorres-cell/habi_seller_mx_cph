@@ -1,6 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
+
+declare global {
+  interface Window {
+    analytics?: {
+      track(event: string, properties?: Record<string, unknown>): void;
+      page(category?: string, properties?: Record<string, unknown>): void;
+    };
+  }
+}
 import styles from "@/app/intro/intro.module.css";
 
 const SCRIPT_URL =
@@ -84,6 +93,14 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
   const [lead, setLead]       = useState<Lead | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError]     = useState<string | null>(null);
+
+  useEffect(() => {
+    const properties = { uuid, landing_version: landing, country: "MX" };
+    if (process.env.NODE_ENV === "development") {
+      console.log("🟣 Segment: page", properties);
+    }
+    window.analytics?.page(undefined, properties);
+  }, [uuid, landing]);
 
   useEffect(() => {
     fetch(`/api/lead/${uuid}`)

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import SegmentScript from "@/components/SegmentScript";
 
 export const metadata: Metadata = {
   title: "Habi - Te acompañamos en cada paso",
@@ -14,7 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body>{children}</body>
+      <body>
+        <SegmentScript />
+        {children}
+      </body>
     </html>
   );
 }

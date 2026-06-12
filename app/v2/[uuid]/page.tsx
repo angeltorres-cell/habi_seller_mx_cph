@@ -5,6 +5,8 @@ import Benefits from "@/components/Benefits";
 import FormSection from "@/components/FormSection";
 import CostSection from "@/components/CostSection";
 import Footer from "@/components/Footer";
+import TrackedSection from "@/components/TrackedSection";
+import PageTracker from "@/components/PageTracker";
 
 export default async function V2UuidPage({
   params,
@@ -15,11 +17,18 @@ export default async function V2UuidPage({
 
   return (
     <>
+      <PageTracker uuid={uuid} version="intro-v2" />
       <TopBar />
       <Hero />
-      <ComoFunciona />
-      <Benefits />
-      <FormSection uuid={uuid} version="intro-v2" />
+      <TrackedSection name="como_funciona" uuid={uuid} version="intro-v2">
+        <ComoFunciona />
+      </TrackedSection>
+      <TrackedSection name="beneficios" uuid={uuid} version="intro-v2">
+        <Benefits />
+      </TrackedSection>
+      <TrackedSection name="encuesta" uuid={uuid} version="intro-v2">
+        <FormSection uuid={uuid} version="intro-v2" />
+      </TrackedSection>
       <CostSection porcentaje={3} />
       <Footer />
     </>
