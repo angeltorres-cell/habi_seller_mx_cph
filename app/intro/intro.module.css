@@ -182,6 +182,24 @@
   padding-top: 20px;
 }
 
+/* Wrapper de precio: altura mínima garantiza que botones queden alineados */
+.cardPriceWrapper {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+/* Línea introductoria de la lista de beneficios del programa */
+.featureIntro {
+  font-size: 12px;
+  font-weight: 700;
+  color: #8611fe;
+  letter-spacing: 0.2px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ede0ff;
+  margin-bottom: 2px;
+}
+
 .checkList {
   list-style: none;
   display: flex;

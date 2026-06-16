@@ -29,7 +29,7 @@ export default async function V2UuidPage({
       <TrackedSection name="encuesta" uuid={uuid} version="intro-v2">
         <FormSection uuid={uuid} version="intro-v2" />
       </TrackedSection>
-      <CostSection porcentaje={3} />
+      <CostSection uuid={uuid} porcentaje={5} />
       <Footer />
     </>
   );

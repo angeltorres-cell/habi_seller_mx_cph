@@ -42,6 +42,7 @@ export default function IntroClient() {
 
             {/* Beneficios */}
             <ul className={`${styles.checkList} ${styles.cardFeatures}`}>
+              <li className={styles.featureIntro}>✦ Todo lo de la Oferta Estándar, más:</li>
               <li><span className={styles.check}>✓</span> Hipoteca Infonavit liquidada</li>
               <li><span className={styles.check}>✓</span> No necesitas mudarte a un lugar temporal</li>
               <li><span className={styles.check}>✓</span> Tiempo real para asegurar tu próximo hogar</li>
@@ -50,7 +51,9 @@ export default function IntroClient() {
 
             {/* Precio y CTA */}
             <div className={styles.cardFooter}>
-              <div className={styles.costTag}>Costo adicional: <strong>-6%</strong> sobre tu oferta base</div>
+              <div className={styles.cardPriceWrapper}>
+                <div className={styles.costTag}>Costo adicional: <strong>-5%</strong> sobre tu oferta base</div>
+              </div>
               <a href={LANDING_URL} className={styles.btnPrimary}>
                 Unirme a la lista de espera del programa
               </a>
@@ -78,6 +81,7 @@ export default function IntroClient() {
 
             {/* Precio y CTA */}
             <div className={styles.cardFooter}>
+              <div className={styles.cardPriceWrapper} />
               <a
                 href={ofertaUrl}
                 className={styles.btnSecondary}

@@ -29,7 +29,7 @@ export default async function UuidHomePage({
       <TrackedSection name="encuesta" uuid={uuid} version="intro">
         <FormSection uuid={uuid} version="intro" />
       </TrackedSection>
-      <CostSection porcentaje={6} />
+      <CostSection uuid={uuid} porcentaje={5} />
       <Footer />
     </>
   );

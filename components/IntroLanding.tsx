@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { resolveOfertaBase, formatMXN, type Lead } from "@/lib/oferta";
 
 declare global {
   interface Window {
@@ -17,24 +18,6 @@ const SCRIPT_URL =
 
 const OFERTA_ESTANDAR_URL =
   "https://ofertas.tuhabi.mx/f9e1c4b9-17e0-4e44-a104-6feec893099c";
-
-type LeadProperties = {
-  link_bnpl__comercial_?: string | null;
-  bnpl_1__comercial_?: string | null;
-  final_final_aprobado_b_o?: string | null;
-  oferta_final_prestamo_mx_calculada?: string | null;
-  precio_comite?: string | null;
-  precio_comite_original?: string | null;
-  ask_price_comite_mx_hesh?: string | null;
-  pipeline?: string | null;
-  country?: string | null;
-  deal_uuid?: string | null;
-};
-
-type Lead = {
-  id: string;
-  properties: LeadProperties;
-};
 
 type Props = {
   uuid: string;
@@ -58,35 +41,6 @@ async function sendLog(
     }),
     new Promise<void>((resolve) => setTimeout(resolve, 1500)),
   ]);
-}
-
-function formatMXN(val: number | string | null | undefined): string | null {
-  if (val === null || val === undefined || val === "") return null;
-  const num = typeof val === "number" ? val : parseFloat(val);
-  if (isNaN(num)) return String(val);
-  return new Intl.NumberFormat("es-MX", {
-    style: "currency",
-    currency: "MXN",
-    maximumFractionDigits: 0,
-  }).format(num);
-}
-
-function toNum(val: string | null | undefined): number | null {
-  if (!val) return null;
-  const n = parseFloat(val);
-  return isNaN(n) ? null : n;
-}
-
-function resolveOfertaBase(p: LeadProperties): number | null {
-  const bnpl     = toNum(p.bnpl_1__comercial_);
-  const aprobado = toNum(p.final_final_aprobado_b_o);
-  const calculada = toNum(p.oferta_final_prestamo_mx_calculada);
-
-  if (bnpl === null && aprobado === null) return calculada;
-  if (bnpl !== null && aprobado === null)
-    return calculada !== null ? Math.min(bnpl, calculada) : bnpl;
-  if (bnpl === null && aprobado !== null) return aprobado;
-  return Math.min(bnpl!, aprobado!);
 }
 
 export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
@@ -177,6 +131,7 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
 
             {/* Beneficios */}
             <ul className={`${styles.checkList} ${styles.cardFeatures}`}>
+              <li className={styles.featureIntro}>✦ Todo lo de la Oferta Estándar, más:</li>
               <li><span className={styles.check}>✓</span> Hipoteca Infonavit liquidada</li>
               <li><span className={styles.check}>✓</span> No necesitas mudarte a un lugar temporal</li>
               <li><span className={styles.check}>✓</span> Tiempo real para asegurar tu próximo hogar</li>
@@ -185,12 +140,14 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
 
             {/* Precio y CTA */}
             <div className={styles.cardFooter}>
-              <div className={styles.costTag}>
-                {ofertaConPrograma !== null ? (
-                  <>Valor de oferta con el programa: <strong>{formatMXN(ofertaConPrograma)}</strong></>
-                ) : (
-                  <>Costo adicional: <strong>-{porcentaje}%</strong> sobre tu oferta base</>
-                )}
+              <div className={styles.cardPriceWrapper}>
+                <div className={styles.costTag}>
+                  {ofertaConPrograma !== null ? (
+                    <>Valor de oferta: <strong>{formatMXN(ofertaConPrograma)}</strong></>
+                  ) : (
+                    <>Costo adicional: <strong>-{porcentaje}%</strong> sobre tu oferta base</>
+                  )}
+                </div>
               </div>
               <button
                 type="button"
@@ -226,11 +183,13 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
 
             {/* Precio y CTA */}
             <div className={styles.cardFooter}>
-              {ofertaBase !== null && (
-                <div className={styles.ofertaValor}>
-                  Valor de oferta: <strong>{formatMXN(ofertaBase)}</strong>
-                </div>
-              )}
+              <div className={styles.cardPriceWrapper}>
+                {ofertaBase !== null && (
+                  <div className={styles.ofertaValor}>
+                    Valor de oferta: <strong>{formatMXN(ofertaBase)}</strong>
+                  </div>
+                )}
+              </div>
               <button
                 type="button"
                 className={styles.btnSecondary}

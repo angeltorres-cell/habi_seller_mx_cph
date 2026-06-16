@@ -9,7 +9,7 @@ export default async function IntroV2UuidPage({
   const { uuid } = await params;
   return (
     <Suspense>
-      <IntroLanding uuid={uuid} porcentaje={3} landing="intro-v2" />
+      <IntroLanding uuid={uuid} porcentaje={5} landing="intro-v2" />
     </Suspense>
   );
 }
