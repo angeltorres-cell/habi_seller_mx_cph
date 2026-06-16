@@ -36,7 +36,6 @@ export default function CostSection({ uuid, porcentaje = 5 }: Props) {
             -{porcentaje}<span className={styles.sym}>%</span>
           </span>
         )}
-        <span className={styles.detail}>sobre el precio de compra de tu inmueble</span>
       </div>
     </section>
   );
