@@ -119,7 +119,6 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
 
             {/* Encabezado */}
             <div className={styles.cardHeader}>
-              <span className={styles.cardBadgeInline}>★ Nuevo Exclusivo</span>
               <h2 className={styles.cardTitle}>Programa Cambio de Casa</h2>
               <p className={styles.cardDesc}>
                 TuHabi compra tu inmueble,{" "}
