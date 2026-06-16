@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import styles from "./MultiStepForm.module.css";
+import { toNum } from "@/lib/oferta";
 
 const SHEET_URL =
   process.env.NEXT_PUBLIC_SHEET_URL ??
@@ -77,6 +78,18 @@ export default function MultiStepForm({ uuid, version }: { uuid?: string; versio
   }
 
   async function handleSubmit() {
+    let askPriceRounded: number | "" = "";
+    if (uuid) {
+      try {
+        const res = await fetch(`/api/lead/${uuid}`);
+        if (res.ok) {
+          const data = await res.json();
+          const val = toNum(data?.properties?.ask_price_comite_mx_hesh);
+          if (val !== null) askPriceRounded = Math.ceil(val);
+        }
+      } catch {}
+    }
+
     const payload = {
       logType: "encuesta",
       landing: LANDING_ID,
@@ -87,6 +100,7 @@ export default function MultiStepForm({ uuid, version }: { uuid?: string; versio
       uuid: uuid ?? "",
       version: version ?? "",
       userAgent: navigator.userAgent,
+      ask_price_comite_mx_hesh: askPriceRounded,
     };
 
     console.log(`Respuestas ${LANDING_ID}:`, payload);
