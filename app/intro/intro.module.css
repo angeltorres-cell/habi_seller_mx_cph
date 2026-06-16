@@ -45,6 +45,11 @@
   color: #ffffff;
 }
 
+.titleIntro {
+  display: block;
+  margin-bottom: 12px;
+}
+
 .title em {
   font-style: normal;
   color: #fde68a;

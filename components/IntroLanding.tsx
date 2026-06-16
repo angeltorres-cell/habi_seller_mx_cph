@@ -151,9 +151,8 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
         <header className={styles.header}>
           <span className={styles.readyBadge}>✓ Tu oferta TuHabi está lista</span>
           <h1 className={styles.title}>
-            ¡Tenemos una novedad para ti! Diseñamos un nuevo servicio exclusivo
-            para quienes venden para volver a comprar. Asegura tu lugar en la
-            lista de acceso.
+            <span className={styles.titleIntro}>¡Tenemos una novedad para ti!</span>
+            Diseñamos un nuevo servicio exclusivo para quienes venden para volver a comprar. Asegura tu lugar en la lista de acceso.
           </h1>
         </header>
 
