@@ -333,6 +333,24 @@
   margin: 0;
 }
 
+/* Placeholder invisible para igualar altura del footer con la card premium */
+.tycNotePlaceholder {
+  visibility: hidden;
+}
+
+/* Badge inline dentro del header de la card (Nuevo Exclusivo) */
+.cardBadgeInline {
+  display: inline-block;
+  background: #f0e6ff;
+  color: #8611fe;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 100px;
+  letter-spacing: 0.3px;
+  margin-bottom: 10px;
+}
+
 /* ── RESPONSIVE: mobile → jerarquía vertical B arriba, A abajo ── */
 @media (max-width: 660px) {
   .cards {

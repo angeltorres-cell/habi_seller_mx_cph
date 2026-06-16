@@ -115,10 +115,11 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
 
           {/* PROGRAMA CAMBIO DE CASA — PREMIUM */}
           <div className={`${styles.card} ${styles.cardPremium}`}>
-            <div className={styles.premiumBadge}>★ Nuevo Exclusivo</div>
+            <div className={styles.premiumBadge}>⭐ Más popular</div>
 
             {/* Encabezado */}
             <div className={styles.cardHeader}>
+              <span className={styles.cardBadgeInline}>★ Nuevo Exclusivo</span>
               <h2 className={styles.cardTitle}>Programa Cambio de Casa</h2>
               <p className={styles.cardDesc}>
                 TuHabi compra tu inmueble,{" "}
@@ -179,6 +180,8 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
             <ul className={`${styles.checkList} ${styles.cardFeatures}`}>
               <li><span className={styles.check}>✓</span> Revisa detalles de tu oferta de compra</li>
               <li><span className={styles.check}>✓</span> Cierra y recibe tu dinero de forma segura</li>
+              <li><span className={styles.check}>✓</span> Proceso rápido y sin complicaciones</li>
+              <li><span className={styles.check}>✓</span> Pago seguro y directo</li>
             </ul>
 
             {/* Precio y CTA */}
@@ -200,6 +203,7 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
               >
                 Ver mi oferta de compra estándar
               </button>
+              <p className={`${styles.tycNote} ${styles.tycNotePlaceholder}`} aria-hidden="true">Aplica términos y condiciones*</p>
             </div>
           </div>
 
