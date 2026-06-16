@@ -159,70 +159,92 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
 
         {/* CARDS */}
         <div className={styles.cards}>
+
           {/* PROGRAMA CAMBIO DE CASA — PREMIUM */}
           <div className={`${styles.card} ${styles.cardPremium}`}>
             <div className={styles.premiumBadge}>★ Nuevo Exclusivo</div>
-            <h2 className={styles.cardTitle}>Programa Cambio de Casa</h2>
-            <p className={styles.cardDesc}>
-              TuHabi compra tu inmueble,{" "}
-              <strong>liquida tu hipoteca Infonavit</strong> y te otorga{" "}
-              <strong>3 meses de estancia libre</strong> en tu propiedad para
-              que tu puntaje crediticio se restablezca y puedas tramitar tu
-              nuevo crédito sin complicaciones.
-            </p>
-            <ul className={styles.checkList}>
+
+            {/* Encabezado */}
+            <div className={styles.cardHeader}>
+              <h2 className={styles.cardTitle}>Programa Cambio de Casa</h2>
+              <p className={styles.cardDesc}>
+                TuHabi compra tu inmueble,{" "}
+                <strong>liquida tu hipoteca Infonavit</strong> y te otorga{" "}
+                <strong>3 meses de estancia libre</strong> en tu propiedad para
+                que tu puntaje crediticio se restablezca y puedas tramitar tu
+                nuevo crédito sin complicaciones.
+              </p>
+            </div>
+
+            {/* Beneficios */}
+            <ul className={`${styles.checkList} ${styles.cardFeatures}`}>
               <li><span className={styles.check}>✓</span> Hipoteca Infonavit liquidada</li>
               <li><span className={styles.check}>✓</span> No necesitas mudarte a un lugar temporal</li>
               <li><span className={styles.check}>✓</span> Tiempo real para asegurar tu próximo hogar</li>
               <li><span className={styles.check}>✓</span> Ahorro de costo de una mudanza adicional</li>
             </ul>
-            <div className={styles.costTag}>
-              {ofertaConPrograma !== null ? (
-                <>Valor de oferta con el programa: <strong>{formatMXN(ofertaConPrograma)}</strong></>
-              ) : (
-                <>Costo adicional: <strong>-{porcentaje}%</strong> sobre tu oferta base</>
-              )}
+
+            {/* Precio y CTA */}
+            <div className={styles.cardFooter}>
+              <div className={styles.costTag}>
+                {ofertaConPrograma !== null ? (
+                  <>Valor de oferta con el programa: <strong>{formatMXN(ofertaConPrograma)}</strong></>
+                ) : (
+                  <>Costo adicional: <strong>-{porcentaje}%</strong> sobre tu oferta base</>
+                )}
+              </div>
+              <button
+                type="button"
+                className={styles.btnPrimary}
+                onClick={async () => {
+                  await sendLog("lista_espera", uuid, "Unirme a la lista de espera del programa", landing);
+                  window.location.href = landing === "intro-v2" ? `/v2/${uuid}` : `/${uuid}`;
+                }}
+              >
+                Unirme a la lista de espera del programa
+              </button>
+              <p className={styles.tycNote}>Aplica términos y condiciones*</p>
             </div>
-            <button
-              type="button"
-              className={styles.btnPrimary}
-              onClick={async () => {
-                await sendLog("lista_espera", uuid, "Unirme a la lista de espera del programa", landing);
-                window.location.href = landing === "intro-v2" ? `/v2/${uuid}` : `/${uuid}`;
-              }}
-            >
-              Unirme a la lista de espera del programa
-            </button>
-            <p className={styles.tycNote}>Aplica términos y condiciones*</p>
           </div>
 
           {/* OFERTA ESTÁNDAR */}
           <div className={`${styles.card} ${styles.cardStandard}`}>
-            <h2 className={styles.cardTitle}>Oferta Estándar</h2>
-            <p className={styles.cardDesc}>
-              Recibe una oferta directa por tu inmueble. Proceso rápido, pago
-              seguro y sin publicación ni visitas de desconocidos.
-            </p>
-            <ul className={styles.checkList}>
+
+            {/* Encabezado */}
+            <div className={styles.cardHeader}>
+              <h2 className={styles.cardTitle}>Oferta Estándar</h2>
+              <p className={styles.cardDesc}>
+                Recibe una oferta directa por tu inmueble. Proceso rápido, pago
+                seguro y sin publicación ni visitas de desconocidos.
+              </p>
+            </div>
+
+            {/* Beneficios */}
+            <ul className={`${styles.checkList} ${styles.cardFeatures}`}>
               <li><span className={styles.check}>✓</span> Revisa detalles de tu oferta de compra</li>
               <li><span className={styles.check}>✓</span> Cierra y recibe tu dinero de forma segura</li>
             </ul>
-            {ofertaBase !== null && (
-              <div className={styles.ofertaValor}>
-                Valor de oferta: <strong>{formatMXN(ofertaBase)}</strong>
-              </div>
-            )}
-            <button
-              type="button"
-              className={styles.btnSecondary}
-              onClick={async () => {
-                await sendLog("oferta_estandar", uuid, "Ver oferta estándar", landing);
-                window.open(ofertaUrl, "_blank", "noopener,noreferrer");
-              }}
-            >
-              Ver mi oferta de compra estándar
-            </button>
+
+            {/* Precio y CTA */}
+            <div className={styles.cardFooter}>
+              {ofertaBase !== null && (
+                <div className={styles.ofertaValor}>
+                  Valor de oferta: <strong>{formatMXN(ofertaBase)}</strong>
+                </div>
+              )}
+              <button
+                type="button"
+                className={styles.btnSecondary}
+                onClick={async () => {
+                  await sendLog("oferta_estandar", uuid, "Ver oferta estándar", landing);
+                  window.open(ofertaUrl, "_blank", "noopener,noreferrer");
+                }}
+              >
+                Ver mi oferta de compra estándar
+              </button>
+            </div>
           </div>
+
         </div>
 
       </div>

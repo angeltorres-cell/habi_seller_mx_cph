@@ -28,44 +28,64 @@ export default function IntroClient() {
           {/* PROGRAMA CAMBIO DE CASA — PREMIUM */}
           <div className={`${styles.card} ${styles.cardPremium}`}>
             <div className={styles.premiumBadge}>★ Nuevo Exclusivo</div>
-            <h2 className={styles.cardTitle}>Programa Cambio de Casa</h2>
-            <p className={styles.cardDesc}>
-              TuHabi compra tu inmueble, <strong>liquida tu hipoteca Infonavit</strong> y
-              te otorga <strong>3 meses de estancia libre</strong> en tu propiedad para que tu
-              puntaje crediticio se restablezca y puedas tramitar tu nuevo crédito sin complicaciones.
-            </p>
-            <ul className={styles.checkList}>
+
+            {/* Encabezado */}
+            <div className={styles.cardHeader}>
+              <h2 className={styles.cardTitle}>Programa Cambio de Casa</h2>
+              <p className={styles.cardDesc}>
+                TuHabi compra tu inmueble, <strong>liquida tu hipoteca Infonavit</strong> y
+                te otorga <strong>3 meses de estancia libre</strong> en tu propiedad para que tu
+                puntaje crediticio se restablezca y puedas tramitar tu nuevo crédito sin complicaciones.
+              </p>
+            </div>
+
+            {/* Beneficios */}
+            <ul className={`${styles.checkList} ${styles.cardFeatures}`}>
               <li><span className={styles.check}>✓</span> Hipoteca Infonavit liquidada</li>
               <li><span className={styles.check}>✓</span> No necesitas mudarte a un lugar temporal</li>
               <li><span className={styles.check}>✓</span> Tiempo real para asegurar tu próximo hogar</li>
               <li><span className={styles.check}>✓</span> Ahorro de costo de una mudanza adicional</li>
             </ul>
-            <div className={styles.costTag}>Costo adicional: <strong>-6%</strong> sobre tu oferta base</div>
-            <a href={LANDING_URL} className={styles.btnPrimary}>
-              Unirme a la lista de espera del programa
-            </a>
-            <p className={styles.tycNote}>Aplica términos y condiciones*</p>
+
+            {/* Precio y CTA */}
+            <div className={styles.cardFooter}>
+              <div className={styles.costTag}>Costo adicional: <strong>-6%</strong> sobre tu oferta base</div>
+              <a href={LANDING_URL} className={styles.btnPrimary}>
+                Unirme a la lista de espera del programa
+              </a>
+              <p className={styles.tycNote}>Aplica términos y condiciones*</p>
+            </div>
           </div>
 
           {/* OFERTA ESTÁNDAR */}
           <div className={`${styles.card} ${styles.cardStandard}`}>
-            <h2 className={styles.cardTitle}>Oferta Estándar</h2>
-            <p className={styles.cardDesc}>
-              Recibe una oferta directa por tu inmueble. Proceso rápido, pago seguro
-              y sin publicación ni visitas de desconocidos.
-            </p>
-            <ul className={styles.checkList}>
+
+            {/* Encabezado */}
+            <div className={styles.cardHeader}>
+              <h2 className={styles.cardTitle}>Oferta Estándar</h2>
+              <p className={styles.cardDesc}>
+                Recibe una oferta directa por tu inmueble. Proceso rápido, pago seguro
+                y sin publicación ni visitas de desconocidos.
+              </p>
+            </div>
+
+            {/* Beneficios */}
+            <ul className={`${styles.checkList} ${styles.cardFeatures}`}>
               <li><span className={styles.check}>✓</span> Revisa detalles de tu oferta de compra</li>
               <li><span className={styles.check}>✓</span> Cierra y recibe tu dinero de forma segura</li>
             </ul>
-            <a
-              href={ofertaUrl}
-              className={styles.btnSecondary}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Ver mi oferta de compra estándar
-            </a>
+
+            {/* Precio y CTA */}
+            <div className={styles.cardFooter}>
+              <a
+                href={ofertaUrl}
+                className={styles.btnSecondary}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ver mi oferta de compra estándar
+              </a>
+            </div>
           </div>
 
         </div>
