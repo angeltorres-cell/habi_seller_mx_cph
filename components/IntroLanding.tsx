@@ -91,7 +91,9 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
   }
 
   const { properties: p } = lead;
-  const ofertaUrl = p.link_bnpl__comercial_ ?? OFERTA_ESTANDAR_URL;
+  const ofertaUrl = p.deal_uuid
+    ? `https://ofertas.tuhabi.mx/${p.deal_uuid}`
+    : OFERTA_ESTANDAR_URL;
   const ofertaBase = resolveOfertaBase(p);
   const ofertaConPrograma =
     ofertaBase !== null
