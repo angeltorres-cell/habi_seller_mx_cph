@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { resolveOfertaBase, formatMXN, type Lead } from "@/lib/oferta";
 
 declare global {
@@ -29,9 +30,11 @@ async function sendLog(
   logType: string,
   uuid: string,
   boton: string,
-  landing: string
+  landing: string,
+  source?: string
 ) {
-  const payload = { logType, uuid, boton, version: landing, userAgent: navigator.userAgent };
+  const payload: Record<string, string> = { logType, uuid, boton, version: landing, userAgent: navigator.userAgent };
+  if (source) payload.source = source;
   await Promise.race([
     fetch(SCRIPT_URL, {
       method: "POST",
@@ -47,6 +50,13 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
   const [lead, setLead]       = useState<Lead | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError]     = useState<string | null>(null);
+
+  const searchParams = useSearchParams();
+  const source = searchParams.get("channel") === "whatsapp" ? "whatsapp" : "comercial";
+
+  useEffect(() => {
+    sendLog("logs_boton", uuid, "", landing, source);
+  }, [uuid, landing, source]);
 
   useEffect(() => {
     const properties = { uuid, landing_version: landing, country: "MX" };
