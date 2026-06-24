@@ -139,7 +139,12 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
 
           {/* PROGRAMA CAMBIO DE CASA — PREMIUM */}
           <div ref={cardProgramaRef} className={`${styles.card} ${styles.cardPremium}`}>
-            <div className={styles.premiumBadge}>⭐ Más popular</div>
+            <div className={styles.premiumBadge}>
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style={{ marginRight: 5, verticalAlign: "middle" }}>
+                <path d="M1.5 5L3.8 7.5L8.5 2.5" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              Recomendado para ti
+            </div>
 
             {/* Encabezado */}
             <div className={styles.cardHeader}>
@@ -178,15 +183,18 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
                 type="button"
                 className={styles.btnPrimary}
                 onClick={async () => {
-                  await sendLog("lista_espera", uuid, "Unirme a la lista de espera del programa", landing);
+                  await sendLog("lista_espera", uuid, "Quiero Cambio de Casa", landing);
                   window.location.href = landing === "intro-v2" ? `/v2/${uuid}` : `/${uuid}`;
                 }}
               >
-                Unirme a la lista de espera del programa
+                Quiero Cambio de Casa
               </button>
               <p className={styles.tycNote}>Aplica términos y condiciones*</p>
             </div>
           </div>
+
+          {/* SEPARADOR */}
+          <div className={styles.separator}>— o —</div>
 
           {/* OFERTA ESTÁNDAR */}
           <div ref={cardOfertaRef} className={`${styles.card} ${styles.cardStandard}`}>
@@ -220,7 +228,7 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
               <button
                 ref={btnOfertaRef}
                 type="button"
-                className={styles.btnSecondary}
+                className={styles.btnOutlineGrey}
                 onClick={async () => {
                   await sendLog("oferta_estandar", uuid, "Ver oferta estándar", landing);
                   window.open(ofertaUrl, "_blank", "noopener,noreferrer");
