@@ -57,10 +57,11 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
   const cardOfertaRef    = useRef<HTMLDivElement>(null);
   const btnOfertaRef     = useRef<HTMLButtonElement>(null);
 
-  useCardTracking(cardProgramaRef, "card_programa",        uuid, landing as "intro" | "intro-v2");
-  useCardTracking(btnListaRef,    "btn_lista_espera",     uuid, landing as "intro" | "intro-v2");
-  useCardTracking(cardOfertaRef,  "card_oferta_estandar", uuid, landing as "intro" | "intro-v2");
-  useCardTracking(btnOfertaRef,   "btn_oferta_estandar",  uuid, landing as "intro" | "intro-v2");
+  const isReady = !!lead;
+  useCardTracking(cardProgramaRef, "card_programa",        uuid, landing as "intro" | "intro-v2", isReady);
+  useCardTracking(btnListaRef,    "btn_lista_espera",     uuid, landing as "intro" | "intro-v2", isReady);
+  useCardTracking(cardOfertaRef,  "card_oferta_estandar", uuid, landing as "intro" | "intro-v2", isReady);
+  useCardTracking(btnOfertaRef,   "btn_oferta_estandar",  uuid, landing as "intro" | "intro-v2", isReady);
 
   const searchParams = useSearchParams();
   const source = searchParams.get("channel") === "whatsapp" ? "whatsapp" : "comercial";

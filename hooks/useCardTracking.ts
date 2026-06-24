@@ -14,11 +14,13 @@ export function useCardTracking(
   ref: React.RefObject<HTMLElement | null>,
   sectionName: CardSectionName,
   uuid: string,
-  landingVersion: LandingVersion
+  landingVersion: LandingVersion,
+  ready: boolean
 ) {
   const tracked = useRef(false);
 
   useEffect(() => {
+    if (!ready) return;
     const el = ref.current;
     if (!el) return;
 
@@ -53,5 +55,5 @@ export function useCardTracking(
       el.addEventListener("mouseenter", fireEvent);
       return () => el.removeEventListener("mouseenter", fireEvent);
     }
-  }, [ref, sectionName, uuid, landingVersion]);
+  }, [ref, sectionName, uuid, landingVersion, ready]);
 }
