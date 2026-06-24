@@ -11,7 +11,14 @@ declare global {
   }
 }
 
-type SectionName = "como_funciona" | "beneficios" | "encuesta";
+type SectionName =
+  | "como_funciona"
+  | "beneficios"
+  | "encuesta"
+  | "card_programa"
+  | "btn_lista_espera"
+  | "card_oferta_estandar"
+  | "btn_oferta_estandar";
 type LandingVersion = "intro" | "intro-v2";
 
 export function useSectionTracking(

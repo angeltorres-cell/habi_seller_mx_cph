@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useSectionTracking } from "@/hooks/useSectionTracking";
 import { useSearchParams } from "next/navigation";
 import { resolveOfertaBase, formatMXN, type Lead } from "@/lib/oferta";
 
@@ -50,6 +51,16 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
   const [lead, setLead]       = useState<Lead | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError]     = useState<string | null>(null);
+
+  const cardProgramaRef  = useRef<HTMLDivElement>(null);
+  const btnListaRef      = useRef<HTMLButtonElement>(null);
+  const cardOfertaRef    = useRef<HTMLDivElement>(null);
+  const btnOfertaRef     = useRef<HTMLButtonElement>(null);
+
+  useSectionTracking(cardProgramaRef, "card_programa",       uuid, landing as "intro" | "intro-v2");
+  useSectionTracking(btnListaRef,     "btn_lista_espera",    uuid, landing as "intro" | "intro-v2");
+  useSectionTracking(cardOfertaRef,   "card_oferta_estandar", uuid, landing as "intro" | "intro-v2");
+  useSectionTracking(btnOfertaRef,    "btn_oferta_estandar", uuid, landing as "intro" | "intro-v2");
 
   const searchParams = useSearchParams();
   const source = searchParams.get("channel") === "whatsapp" ? "whatsapp" : "comercial";
@@ -126,7 +137,7 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
         <div className={styles.cards}>
 
           {/* PROGRAMA CAMBIO DE CASA — PREMIUM */}
-          <div className={`${styles.card} ${styles.cardPremium}`}>
+          <div ref={cardProgramaRef} className={`${styles.card} ${styles.cardPremium}`}>
             <div className={styles.premiumBadge}>⭐ Más popular</div>
 
             {/* Encabezado */}
@@ -162,6 +173,7 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
                 </div>
               </div>
               <button
+                ref={btnListaRef}
                 type="button"
                 className={styles.btnPrimary}
                 onClick={async () => {
@@ -176,7 +188,7 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
           </div>
 
           {/* OFERTA ESTÁNDAR */}
-          <div className={`${styles.card} ${styles.cardStandard}`}>
+          <div ref={cardOfertaRef} className={`${styles.card} ${styles.cardStandard}`}>
 
             {/* Encabezado */}
             <div className={styles.cardHeader}>
@@ -205,6 +217,7 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
                 )}
               </div>
               <button
+                ref={btnOfertaRef}
                 type="button"
                 className={styles.btnSecondary}
                 onClick={async () => {
