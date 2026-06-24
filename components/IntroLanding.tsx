@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useSectionTracking } from "@/hooks/useSectionTracking";
+import { useCardTracking } from "@/hooks/useCardTracking";
 import { useSearchParams } from "next/navigation";
 import { resolveOfertaBase, formatMXN, type Lead } from "@/lib/oferta";
 
@@ -57,10 +57,10 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
   const cardOfertaRef    = useRef<HTMLDivElement>(null);
   const btnOfertaRef     = useRef<HTMLButtonElement>(null);
 
-  useSectionTracking(cardProgramaRef, "card_programa",       uuid, landing as "intro" | "intro-v2");
-  useSectionTracking(btnListaRef,     "btn_lista_espera",    uuid, landing as "intro" | "intro-v2");
-  useSectionTracking(cardOfertaRef,   "card_oferta_estandar", uuid, landing as "intro" | "intro-v2");
-  useSectionTracking(btnOfertaRef,    "btn_oferta_estandar", uuid, landing as "intro" | "intro-v2");
+  useCardTracking(cardProgramaRef, "card_programa",        uuid, landing as "intro" | "intro-v2");
+  useCardTracking(btnListaRef,    "btn_lista_espera",     uuid, landing as "intro" | "intro-v2");
+  useCardTracking(cardOfertaRef,  "card_oferta_estandar", uuid, landing as "intro" | "intro-v2");
+  useCardTracking(btnOfertaRef,   "btn_oferta_estandar",  uuid, landing as "intro" | "intro-v2");
 
   const searchParams = useSearchParams();
   const source = searchParams.get("channel") === "whatsapp" ? "whatsapp" : "comercial";
