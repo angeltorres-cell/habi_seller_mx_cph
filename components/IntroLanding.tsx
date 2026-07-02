@@ -192,17 +192,17 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
                     <span className={styles.savingsLabel}>Mudanza extra</span>
                     <span className={styles.savingsValue}>{formatMXN(ahorroMudanza)}</span>
                   </div>
-                  <div className={styles.savingsItem}>
+                  <div className={`${styles.savingsItem} ${styles.savingsItemAccent}`}>
                     <span className={styles.savingsLabel}>Hipoteca Infonavit (4 meses)</span>
-                    <span className={styles.savingsValue}>Incluido*</span>
+                    <span className={styles.savingsValueAccent}>+ tu ahorro</span>
                   </div>
                 </div>
                 <div className={styles.savingsTotal}>
-                  <span className={styles.savingsTotalLabel}>Ahorro mínimo estimado</span>
+                  <span className={styles.savingsTotalLabel}>Tu ahorro sin contar hipoteca</span>
                   <span className={styles.savingsTotalValue}>{formatMXN(totalAhorroCalculado)}</span>
                 </div>
                 <p className={styles.savingsFootnote}>
-                  *El pago de tu hipoteca Infonavit durante 4 meses no está incluido en este cálculo. Sumando ese ahorro, tu ahorro real será mayor.
+                  *Además, TuHabi paga tu hipoteca Infonavit durante 4 meses. Suma lo que pagas de hipoteca al mes × 4 para conocer tu ahorro total.
                 </p>
               </div>
             )}
