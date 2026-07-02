@@ -145,19 +145,20 @@
 
 .premiumBadge {
   position: absolute;
-  top: -14px;
+  top: -12px;
   left: 50%;
   transform: translateX(-50%);
   background: #8611fe;
   color: #ffffff;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 800;
-  padding: 3px 12px;
+  padding: 6px 16px;
   border-radius: 100px;
   white-space: nowrap;
   letter-spacing: 0.3px;
   display: flex;
   align-items: center;
+  box-shadow: 0 4px 12px rgba(134, 17, 254, 0.35);
 }
 
 /* ── CARD SECTIONS (Spotify-style vertical structure) ── */
@@ -166,10 +167,13 @@
 }
 
 .cardFeatures {
-  flex: 1;
   padding: 20px 0;
   border-top: 1.5px solid #f0f0f0;
   border-bottom: 1.5px solid #f0f0f0;
+}
+
+.cardSpacer {
+  flex: 1;
 }
 
 .cardPremium .cardFeatures {
@@ -241,6 +245,76 @@
 .ofertaValor strong {
   color: #8611fe;
   font-size: 15px;
+}
+
+/* ── DESGLOSE DE AHORROS (Cambio de Casa) ── */
+.savingsSection {
+  margin: 16px 0;
+}
+
+.savingsTitle {
+  font-size: 13px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 10px;
+}
+
+.savingsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.savingsItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.savingsLabel {
+  font-size: 11px;
+  color: #777777;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.savingsValue {
+  font-size: 17px;
+  font-weight: 500;
+  color: #0f6e56;
+}
+
+.savingsTotal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #e1f5ee;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-top: 8px;
+}
+
+.savingsTotalLabel {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.savingsTotalValue {
+  font-size: 17px;
+  font-weight: 800;
+  color: #0f6e56;
+}
+
+.savingsFootnote {
+  font-size: 11px;
+  color: #999999;
+  line-height: 1.4;
+  margin: 6px 0 0;
 }
 
 .costTag {
@@ -393,6 +467,71 @@
   margin-bottom: 10px;
 }
 
+/* ── DESKTOP: layout compacto para que todo quepa sin scroll (1920x1080) ── */
+@media (min-width: 661px) {
+  .page {
+    padding: 20px 24px 16px;
+  }
+
+  .wrapper {
+    gap: 16px;
+  }
+
+  .readyBadge {
+    margin-bottom: 8px;
+  }
+
+  .titleIntro {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+
+  .titleSub {
+    font-size: 18px;
+    line-height: 1.3;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .cardHeader {
+    padding-bottom: 8px;
+  }
+
+  .checkList {
+    gap: 4px;
+  }
+
+  .cardFeatures {
+    padding: 12px 0;
+  }
+
+  .cardFooter {
+    padding-top: 12px;
+  }
+
+  .savingsSection {
+    margin: 10px 0;
+  }
+
+  .savingsItem {
+    padding: 8px 10px;
+  }
+
+  .savingsValue {
+    font-size: 15px;
+  }
+
+  .savingsLabel {
+    font-size: 11px;
+  }
+
+  .savingsTotal {
+    padding: 8px 12px;
+  }
+}
+
 /* ── RESPONSIVE: mobile → jerarquía vertical B arriba, A abajo ── */
 @media (max-width: 660px) {
   .cards {
@@ -409,5 +548,13 @@
 
   .separator {
     display: block;
+  }
+
+  .savingsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .savingsItem:nth-child(3) {
+    grid-column: 1 / -1;
   }
 }

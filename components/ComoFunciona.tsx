@@ -10,7 +10,7 @@ const steps = [
   {
     num: "2. Cuidamos tu patrimonio",
     title: "Tu dinero en buenas manos",
-    desc: "Mientras Infonavit actualiza tu perfil (3 meses), resguardamos tu capital con total transparencia. Sabrás dónde está en todo momento.",
+    desc: "Mientras Infonavit actualiza tu perfil (4 meses), resguardamos tu capital con total transparencia. Sabrás dónde está en todo momento.",
   },
   {
     num: "3. Coordinamos tu nueva compra",

@@ -122,6 +122,13 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
       ? Math.round(ofertaBase * (1 - porcentaje / 100))
       : null;
 
+  const ahorroMudanza = ofertaConPrograma !== null ? ofertaConPrograma * 0.005 : null;
+  const ahorroArriendo = ofertaConPrograma !== null ? ofertaConPrograma * 0.01 * 4 : null;
+  const totalAhorroCalculado =
+    ahorroMudanza !== null && ahorroArriendo !== null
+      ? ahorroMudanza + ahorroArriendo
+      : null;
+
   return (
     <main className={styles.page}>
       <div className={styles.wrapper}>
@@ -130,7 +137,7 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
           <span className={styles.readyBadge}>✓ Tu oferta TuHabi está lista</span>
           <h1 className={styles.title}>
             <span className={styles.titleIntro}>¡Tenemos una novedad para ti!</span>
-            Diseñamos un nuevo servicio exclusivo para quienes venden para volver a comprar. Asegura tu lugar en la lista de acceso.
+            <span className={styles.titleSub}>Diseñamos un nuevo servicio exclusivo para quienes venden para volver a comprar.</span>
           </h1>
         </header>
 
@@ -140,7 +147,7 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
           {/* PROGRAMA CAMBIO DE CASA — PREMIUM */}
           <div ref={cardProgramaRef} className={`${styles.card} ${styles.cardPremium}`}>
             <div className={styles.premiumBadge}>
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style={{ marginRight: 5, verticalAlign: "middle" }}>
+              <svg width="12" height="12" viewBox="0 0 10 10" fill="none" style={{ marginRight: 6, verticalAlign: "middle", flexShrink: 0 }}>
                 <path d="M1.5 5L3.8 7.5L8.5 2.5" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
               Recomendado para ti
@@ -152,7 +159,7 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
               <p className={styles.cardDesc}>
                 TuHabi compra tu inmueble,{" "}
                 <strong>liquida tu hipoteca Infonavit</strong> y te otorga{" "}
-                <strong>3 meses de estancia libre</strong> en tu propiedad para
+                <strong>4 meses de estancia libre</strong> en tu propiedad para
                 que tu puntaje crediticio se restablezca y puedas tramitar tu
                 nuevo crédito sin complicaciones.
               </p>
@@ -161,11 +168,44 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
             {/* Beneficios */}
             <ul className={`${styles.checkList} ${styles.cardFeatures}`}>
               <li className={styles.featureIntro}>✦ Todo lo de la Oferta Estándar, más:</li>
-              <li><span className={styles.check}>✓</span> Hipoteca Infonavit liquidada</li>
-              <li><span className={styles.check}>✓</span> No necesitas mudarte a un lugar temporal</li>
-              <li><span className={styles.check}>✓</span> Tiempo real para asegurar tu próximo hogar</li>
-              <li><span className={styles.check}>✓</span> Ahorro de costo de una mudanza adicional</li>
+              <li><span className={styles.check}>✓</span> No pagas ni un peso de hipoteca durante 4 meses</li>
+              <li><span className={styles.check}>✓</span> Te quedas viviendo en tu casa hasta tener la nueva</li>
+              <li><span className={styles.check}>✓</span> Una sola mudanza: directo a tu nuevo hogar</li>
+              <li>
+                <span className={styles.check}>✓</span>
+                {totalAhorroCalculado !== null
+                  ? <>Ahorro real de hasta <strong>{formatMXN(totalAhorroCalculado)}</strong> en gastos</>
+                  : "Ahorro real en gastos de mudanza y arriendo"}
+              </li>
             </ul>
+
+            {/* Desglose de ahorros */}
+            {totalAhorroCalculado !== null && (
+              <div className={styles.savingsSection}>
+                <p className={styles.savingsTitle}>💰 Lo que te ahorras con Cambio de Casa</p>
+                <div className={styles.savingsGrid}>
+                  <div className={styles.savingsItem}>
+                    <span className={styles.savingsLabel}>Arriendo temporal (4 meses)</span>
+                    <span className={styles.savingsValue}>{formatMXN(ahorroArriendo)}</span>
+                  </div>
+                  <div className={styles.savingsItem}>
+                    <span className={styles.savingsLabel}>Mudanza extra</span>
+                    <span className={styles.savingsValue}>{formatMXN(ahorroMudanza)}</span>
+                  </div>
+                  <div className={styles.savingsItem}>
+                    <span className={styles.savingsLabel}>Hipoteca Infonavit (4 meses)</span>
+                    <span className={styles.savingsValue}>Incluido*</span>
+                  </div>
+                </div>
+                <div className={styles.savingsTotal}>
+                  <span className={styles.savingsTotalLabel}>Ahorro mínimo estimado</span>
+                  <span className={styles.savingsTotalValue}>{formatMXN(totalAhorroCalculado)}</span>
+                </div>
+                <p className={styles.savingsFootnote}>
+                  *El pago de tu hipoteca Infonavit durante 4 meses no está incluido en este cálculo. Sumando ese ahorro, tu ahorro real será mayor.
+                </p>
+              </div>
+            )}
 
             {/* Precio y CTA */}
             <div className={styles.cardFooter}>
@@ -215,6 +255,8 @@ export default function IntroLanding({ uuid, porcentaje, landing }: Props) {
               <li><span className={styles.check}>✓</span> Proceso rápido y sin complicaciones</li>
               <li><span className={styles.check}>✓</span> Pago seguro y directo</li>
             </ul>
+
+            <div className={styles.cardSpacer} />
 
             {/* Precio y CTA */}
             <div className={styles.cardFooter}>

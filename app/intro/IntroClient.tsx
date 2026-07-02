@@ -19,7 +19,7 @@ export default function IntroClient() {
           <span className={styles.readyBadge}>✓ Tu oferta TuHabi está lista</span>
           <h1 className={styles.title}>
             <span className={styles.titleIntro}>¡Tenemos una novedad para ti!</span>
-            Diseñamos un nuevo servicio exclusivo para quienes venden para volver a comprar. Asegura tu lugar en la lista de acceso.
+            <span className={styles.titleSub}>Diseñamos un nuevo servicio exclusivo para quienes venden para volver a comprar.</span>
           </h1>
         </header>
 
@@ -28,14 +28,19 @@ export default function IntroClient() {
 
           {/* PROGRAMA CAMBIO DE CASA — PREMIUM */}
           <div className={`${styles.card} ${styles.cardPremium}`}>
-            <div className={styles.premiumBadge}>⭐ Más popular</div>
+            <div className={styles.premiumBadge}>
+              <svg width="12" height="12" viewBox="0 0 10 10" fill="none" style={{ marginRight: 6, verticalAlign: "middle", flexShrink: 0 }}>
+                <path d="M1.5 5L3.8 7.5L8.5 2.5" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              Recomendado para ti
+            </div>
 
             {/* Encabezado */}
             <div className={styles.cardHeader}>
               <h2 className={styles.cardTitle}>Programa Cambio de Casa</h2>
               <p className={styles.cardDesc}>
                 TuHabi compra tu inmueble, <strong>liquida tu hipoteca Infonavit</strong> y
-                te otorga <strong>3 meses de estancia libre</strong> en tu propiedad para que tu
+                te otorga <strong>4 meses de estancia libre</strong> en tu propiedad para que tu
                 puntaje crediticio se restablezca y puedas tramitar tu nuevo crédito sin complicaciones.
               </p>
             </div>
@@ -43,10 +48,10 @@ export default function IntroClient() {
             {/* Beneficios */}
             <ul className={`${styles.checkList} ${styles.cardFeatures}`}>
               <li className={styles.featureIntro}>✦ Todo lo de la Oferta Estándar, más:</li>
-              <li><span className={styles.check}>✓</span> Hipoteca Infonavit liquidada</li>
-              <li><span className={styles.check}>✓</span> No necesitas mudarte a un lugar temporal</li>
-              <li><span className={styles.check}>✓</span> Tiempo real para asegurar tu próximo hogar</li>
-              <li><span className={styles.check}>✓</span> Ahorro de costo de una mudanza adicional</li>
+              <li><span className={styles.check}>✓</span> No pagas ni un peso de hipoteca durante 4 meses</li>
+              <li><span className={styles.check}>✓</span> Te quedas viviendo en tu casa hasta tener la nueva</li>
+              <li><span className={styles.check}>✓</span> Una sola mudanza: directo a tu nuevo hogar</li>
+              <li><span className={styles.check}>✓</span> Ahorro real en gastos de mudanza y arriendo</li>
             </ul>
 
             {/* Precio y CTA */}
@@ -80,6 +85,8 @@ export default function IntroClient() {
               <li><span className={styles.check}>✓</span> Proceso rápido y sin complicaciones</li>
               <li><span className={styles.check}>✓</span> Pago seguro y directo</li>
             </ul>
+
+            <div className={styles.cardSpacer} />
 
             {/* Precio y CTA */}
             <div className={styles.cardFooter}>
